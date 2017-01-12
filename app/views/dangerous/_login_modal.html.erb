@@ -1,0 +1,23 @@
+<!-- Login Modal linked to by dangerous nav bar; Owned by Dangerous-->
+
+<div id="loginModal" class="modal-dialog">
+  <div class="modal-content login-modal">
+    <div class="modal-header">
+      <h4 id="modalHeader" class="center">Login</h4>
+    </div>
+    <div class="modal-body">
+      <div id="errorText" style="color:red"></div>
+      <!-- Form to be submitted to session controller via login route -->
+      <%= form_for(:session, url: login_path, :remote => true) do |f| %>
+        
+        <%= f.label :name, class: 'center'%><br>
+        <%= f.text_field :name, class: 'form-control login-input center' %><br>
+
+        <%= f.label :password, class: "center" %> <br>
+        <%= f.password_field :password, class: 'form-control login-input center' %><br>
+          
+        <%= f.submit "Login", class: "btn btn-large btn-primary center", :remote => true %><br>
+      <% end %>
+    </div>
+  </div>
+</div>

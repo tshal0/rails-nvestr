@@ -1,0 +1,2 @@
+module DangerousHelper
+end

@@ -1,0 +1,12 @@
+// Executed when login attempt RETURNS
+
+
+// USERNAME_NOT_FOUND NONE INVALID_PASSWORD
+
+<% if @login_error == 'USERNAME_NOT_FOUND' then %>
+// Username not found
+	$('#errorText').text('Username Not Found')
+<% elsif @login_error == 'INVALID_PASSWORD' then %>
+// Invalid Password
+	$('#errorText').text('Invalid Password')
+<% end %>
