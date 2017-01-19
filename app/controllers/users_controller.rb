@@ -8,11 +8,18 @@ class UsersController < ApplicationController
 		Rails.logger.info(@user)
 		if @user.save
 			# TODO: cache the user id for the session. 
-			session[:user_id] = user.id
+			session[:user_id] = @user.id
 			# Need a logged-in landing page. 
+			redirect_to root_path
 		else
 			# Unsuccessful login. 
-			redirect_to root_path
+			Rails.logger.info(@user.errors.full_messages)
+			@registration_error = @user.errors.full_messages
+
+		end
+
+		respond_to do |format|
+			format.js {}
 		end
 	end
 
