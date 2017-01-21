@@ -1,3 +1,44 @@
 // Place all the styles related to the dangerous controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Styles for STRICTLY the landing page. 
+
+.registration-table {
+	table-layout: fixed;
+	width:50%;
+	margin: 0px auto;
+	float:none;
+	
+}
+
+table.registration-table tr td {
+	width:50%;
+	position:relative;
+}
+
+.registration-btn {
+	width:100px;
+}
+
+.fix-row {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+.fix-tbody {
+	display:inherit;
+	width:100%;
+	text-align:left;
+}
+
+// Both text and icon
+.error-attributes {
+	color:red;
+
+}
+
+.span-error-msg {
+	float:right;
+}

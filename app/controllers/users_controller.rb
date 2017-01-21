@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 		else
 			# Unsuccessful login. 
 			Rails.logger.info(@user.errors.full_messages)
-			@registration_error = @user.errors.full_messages
 
 		end
 

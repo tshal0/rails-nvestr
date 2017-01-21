@@ -1,0 +1,35 @@
+// Handle registration states. 
+// States: U E P (so far)
+
+// Clear all previous error messages
+
+$("i[id='iconUsername:']").hide()
+$("span[id='spanUsername:']").html("")
+
+$("i[id='iconEmail:']").hide()
+$("span[id='spanEmail:']").html("")
+
+$("i[id='iconPassword:']").hide()
+$("span[id='spanPassword:']").html("")
+// Display errors
+<% if @user.errors.full_messages.any? %>
+  <% @user.errors.full_messages.each do |error_message| %>
+
+   	console.log('<%= error_message %>')
+
+   	<% if error_message.first == 'U' then %>
+	// Username not available
+		$("i[id='iconUsername:']").show()
+		$("span[id='spanUsername:']").html('<%= error_message %>')
+	<% elsif error_message.first == 'E' then %>
+	// Email not available
+		$("i[id='iconEmail:']").show()
+		$("span[id='spanEmail:']").html('<%= error_message %>')
+	<% elsif error_message.first == 'P' then %>
+	// Password too short. 
+		$("i[id='iconPassword:']").show()
+		$("span[id='spanPassword:']").html('<%= error_message %>')
+	<% end %>
+
+  <% end %>
+<% end %>
