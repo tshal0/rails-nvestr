@@ -39,15 +39,18 @@ class SessionsController < ApplicationController
 		 
 	end
 
+	# Log out a user
 	def destroy
+		session[:user_id] = nil
+		redirect_to root_path
 	end
 	
 	private
 		# private login method when creating a session. 
 		def login
 			session[:user_id] = @user.id
-			# Redirect to 
-			redirect_to root_path
+			# Redirect to user portfolio
+			redirect_to portfolio_path
 		end
 
 end

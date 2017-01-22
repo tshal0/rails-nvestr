@@ -2,7 +2,12 @@ class User < ActiveRecord::Base
 
 	# Added for BCrypt
 	has_secure_password
-	# Not sure what these are for or when they come into play...
+
+	# Database relationships
+
+	has_many :roles
+	has_many :portfolios
+
 	validates_uniqueness_of :username, :message => "is not available"
 	validates_uniqueness_of :email, :message => "is not available"
 	validates :email, presence: true, :on => :create

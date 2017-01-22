@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   get 'invalid_login' => 'dangerous#landing_page'
 
+  # Portfolio Routes
+
+  get 'portfolio' => 'portfolios#load'
+
 end

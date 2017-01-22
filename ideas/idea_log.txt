@@ -1,0 +1,50 @@
+Description: Idea log for my stream of consciousness. 
+Created by: Thomas Shallenberger 1/21/2017
+
+
+Should be timestamped I guess. 
+
+User registration/login implemented. Error handling in place. 
+
+TODO: Actual site/database design. 
+
+Design conventions to keep in mind:
+
+Database and model associations set up FIRST
+
+Test driven and behavior driven development
+
+	TDD: Design tests first, then the feature. 
+	BDD: Same as TDD, but from a user story perspective. 
+		Where to start in the process
+		What and what not to test
+		How much to test in one go
+		What to call the tests
+
+	User Stories:
+
+		Title
+		Narrative
+			Who is the driver (beneficiary of the story)
+			What effects the story has
+			What biz value the stakeholder will get from the effect
+		Acceptance criteria/Scenarios
+			For each case of the narrative:
+				Specify initial condition
+				What is the event trigger for scenario
+				Expected outcome
+
+
+Apparently rails handles relationships
+
+user (done needs updating)
+
+stock
+	stock_id, name, price, symbol
+role
+	role_id, name
+
+portfolio
+	portfolio_id
+	user_id
+
