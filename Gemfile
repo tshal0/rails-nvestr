@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Bootstrap Gem
 gem 'bootstrap-sass', '~> 3.3.1'
 
+gem 'rails_12factor'
+
 # Auto prefixes browser vendor
 # gem 'autoprefixer-rails'
 
