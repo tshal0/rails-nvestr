@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
   def user_is_logged_in?
     !!session[:user_id]
+    Rails.logger.info(session)
   end
 
   def is_admin
