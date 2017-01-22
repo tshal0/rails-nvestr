@@ -13,22 +13,15 @@ class ApplicationController < ActionController::Base
   	redirect_to root_path unless current_user
   end
 
-  def user_is_logged_in
-    
-    if !session[:user_id]
-      Rails.logger.info("Test")  
-      return false
-    else
-      Rails.logger.info("True")
-      return true
-    end
+  def user_is_logged_in?
+    !!session[:user_id]
   end
 
   def is_admin
     return User.find(session[:user_id]).roles.exists?(name: 'admin')
   end
 
-  helper_method :user_is_logged_in
+  helper_method :user_is_logged_in?
   helper_method :is_admin
 
 end

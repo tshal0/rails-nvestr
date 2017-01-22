@@ -26,7 +26,7 @@
     <!-- TODO: Dangerous Nav Bar: Login Link -->
     <!-- Remember to change navbar based on session status -->
 
-    <% if user_is_logged_in then %>
+    <% if user_is_logged_in? then %>
       <% if is_admin then %>
         <%= render :partial => "users/adminnavbar" %>
       <% else %>
