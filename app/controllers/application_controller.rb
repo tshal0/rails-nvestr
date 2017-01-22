@@ -14,12 +14,17 @@ class ApplicationController < ActionController::Base
   end
 
   def user_is_logged_in?
-    !!session[:user_id]
-    Rails.logger.info(session[:user_id])
+    if session[:user_id]
+      return true
+    else
+      return false
+    end
   end
 
   def is_admin
-    return User.find(session[:user_id]).roles.exists?(name: 'admin')
+    if User.exists?(session[:user_id])
+      return User.find(session[:user_id]).roles.exists?(name: 'admin')
+    end
   end
 
   helper_method :user_is_logged_in?
