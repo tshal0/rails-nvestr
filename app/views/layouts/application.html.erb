@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
     <title>Nvestr</title> 
 
 	<!-- Can't just include all javascripts...I can include all stylesheets tho -->
@@ -14,7 +16,7 @@
 	<!-- Again, no idea what this does.  -->
 	<%= csrf_meta_tags %> 
 
-   
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,20 +27,30 @@
   <body>
     <!-- TODO: Dangerous Nav Bar: Login Link -->
     <!-- Remember to change navbar based on session status -->
-
-    <% if user_is_logged_in? then %>
-      <% if is_admin then %>
-        <%= render :partial => "users/adminnavbar" %>
+    <div>
+      <% if user_is_logged_in? then %>
+        <% if is_admin then %>
+          <%= render :partial => "users/adminnavbar" %>
+        <% else %>
+          <%= render :partial => "users/usernavbar" %>
+        <% end %>
       <% else %>
-        <%= render :partial => "users/usernavbar" %>
+       <%= render :partial => "dangerous/dangerousnavbar" %>
+      
       <% end %>
-    <% else %>
-     <%= render :partial => "dangerous/dangerousnavbar" %>
-    
-    <% end %>
+      <div class="row">
+        <div class="col-sm-2">
+          <%= yield :sidebar %>
+        </div>
+        <div class="col-sm-10">
+          <%= yield %>
+        </div>
+      </div>
+      
 
-    <%= yield %>
 
+      
+    </div>
   </body>
   <!-- Modal to be used by all apps, added AFTER body -->
   <div id="modal-window" class="modal fade"></div>

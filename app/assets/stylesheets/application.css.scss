@@ -1,11 +1,12 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "simple-sidebar";
 @import "dangerous";
 
 body {
-	padding-top: 65px;
+	font-family: 'Titillium Web', sans-serif;
+	padding-top: 50px;
 }
 
 .center {
@@ -28,4 +29,16 @@ body {
 .fix-row {
 	margin-left: 0px !important;
 	margin-right: 0px !important;
+}
+
+.sidebar {
+	position:fixed;
+	background-color:#dad4d4;
+	height:100vh;
+	width:200px;
+	text-align:right;
+}
+
+.page-container {
+	position:relative;
 }
