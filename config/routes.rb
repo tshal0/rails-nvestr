@@ -19,4 +19,8 @@ Rails.application.routes.draw do
 
   get 'portfolio' => 'portfolios#load'
 
+  # Admin Routes
+
+  get 'admin' => 'admin#dashboard'
+
 end
