@@ -3,7 +3,7 @@
 @import "bootstrap";
 @import "simple-sidebar";
 @import "dangerous";
-
+@import "admin";
 body {
 	font-family: 'Titillium Web', sans-serif;
 	padding-top: 50px;
@@ -36,9 +36,28 @@ body {
 	background-color:#dad4d4;
 	height:100vh;
 	width:200px;
-	text-align:right;
+	text-align:left;
+	
+}
+
+.sidebar ul {
+	margin-left:20px;
+	margin-top:20px;
+	color:black !important;
+}
+
+.sidebar a {
+	color: black;
+	opacity: 0.5;
 }
 
 .page-container {
 	position:relative;
+}
+
+.table-line {
+	margin-bottom:10px;
+}
+.manageUser {
+	width:100%;
 }

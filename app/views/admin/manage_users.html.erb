@@ -1,0 +1,48 @@
+<!-- Page for managing Users.  -->
+
+<% content_for :sidebar do %>
+<!-- sidebar content -->
+	<%= render :partial => "layouts/sidebar" %>
+<% end %>
+
+<div class="manageUser">
+	<h1>Users</h1>
+	<h3>Manage users here.</h3>
+
+	<table class="table table-line">
+		<tbody><tr><td></td></tr></tbody>
+	</table>
+
+	<button class="btn btn-primary btn-add-user">
+		<span class="glyphicon glyphicon-add"></span>Add User
+	</button>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Status</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+				<tr id="<%=	user.username %>">
+					<td><%=	user.username %></td>
+					<td><%=	user.email %></td>
+					<td>Active</td>
+					<td>
+						<div class="center">
+							<a class="btn btn-default">
+								<i class="glyphicon glyphicon-cog"></i>Manage
+							</a>
+							<button class="btn btn-danger">
+								<span class="glyphicon glyphicon-remove"></span>Remove
+							</button>
+						</div>
+					</td>
+				</tr>
+			<% end	%>
+		</tbody>
+	</table>
+</div>

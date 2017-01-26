@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   # Admin Routes
 
   get 'admin' => 'admin#dashboard'
+  get 'manage_users' => 'admin#manage_users'
 
 end
