@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   # User Routes
 
+  get 'add_user' => 'users#add_user'
+
   # path used by Register button
   post 'register_user' => 'users#create'
 

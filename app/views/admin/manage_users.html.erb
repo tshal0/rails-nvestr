@@ -13,9 +13,10 @@
 		<tbody><tr><td></td></tr></tbody>
 	</table>
 
-	<button class="btn btn-primary btn-add-user">
-		<span class="glyphicon glyphicon-add"></span>Add User
-	</button>
+	<%= link_to add_user_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
+		 <span class="glyphicon"></span>
+		 Add User
+	<% end %>
 	<table class="table table-bordered">
 		<thead>
 			<tr>

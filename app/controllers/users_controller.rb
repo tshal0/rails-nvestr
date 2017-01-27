@@ -31,8 +31,16 @@ class UsersController < ApplicationController
 	def delete
 	end
 
+	# launch modal for adding user. 
 	def add_user
+		@user = User.new 
+		@header_attribs = ['Username', 'Email', 'Password']
+		@all_attribs = ['username', 'email', 'password']
+		respond_to do |format| 
+			format.js {}
+		end
 	end
+
 
 	private
 		# Require/permit username|email|password for initial registration
