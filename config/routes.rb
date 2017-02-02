@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#dashboard'
   get 'manage_users' => 'admin#manage_users'
+  get 'delete_user' => 'admin#delete_user'
 
 end

@@ -14,3 +14,9 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+
+
+// Looks like we are putting all the Javascript in one file. 
+
+// Admin Dashboard 
+

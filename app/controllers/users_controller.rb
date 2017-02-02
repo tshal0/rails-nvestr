@@ -28,7 +28,12 @@ class UsersController < ApplicationController
 	def update
 	end
 
+	# method to delete user. 
 	def delete
+		# How does the user id get here?
+
+		User.find(params[:id]).destroy
+		
 	end
 
 	# launch modal for adding user. 

@@ -34,12 +34,13 @@
 					<td>Active</td>
 					<td>
 						<div class="center">
-							<a class="btn btn-default">
+							<a id="manageUserBtn" class="btn btn-default">
 								<i class="glyphicon glyphicon-cog"></i>Manage
 							</a>
-							<button class="btn btn-danger">
-								<span class="glyphicon glyphicon-remove"></span>Remove
-							</button>
+							<%= link_to delete_user_path(:username => user.username), :remote => true, class: 'btn btn-danger' do %>
+								 <span class="glyphicon glyphicon-remove"></span>
+								 Remove User
+							<% end %>
 						</div>
 					</td>
 				</tr>
