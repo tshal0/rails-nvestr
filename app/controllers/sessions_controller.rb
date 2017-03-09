@@ -7,18 +7,18 @@ class SessionsController < ApplicationController
 
 	# When Dangerous attempts to LOGIN from modal, requesting new session. 
 	def create
-		# Users can attempt to login via EMAIL or USERNAME. 
+		# Users can attempt to login via EMAIL or user_name. 
 		# 
 		user_by_email = User.find_by(email: params[:session][:name].downcase)
-		user_by_username = User.find_by(username: params[:session][:name].downcase)
+		user_by_user_name = User.find_by(user_name: params[:session][:name].downcase)
 
 		if user_by_email && user_by_email.authenticate(params[:session][:password])
 			@user = user_by_email
-		elsif user_by_username && user_by_username.authenticate(params[:session][:password])
-			@user = user_by_username
+		elsif user_by_user_name && user_by_user_name.authenticate(params[:session][:password])
+			@user = user_by_user_name
 		else
-			# Username NOT FOUND.  
-			@login_error = 'USERNAME_NOT_FOUND'
+			# user_name NOT FOUND.  
+			@login_error = 'user_name_NOT_FOUND'
 
 		end
 

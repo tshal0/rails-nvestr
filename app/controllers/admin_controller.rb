@@ -32,8 +32,8 @@ class AdminController < ApplicationController
 
 	def delete_user
 		# delete the user, reload the table
-		Rails.logger.debug(params[:username])
-		User.find_by(username: params[:username]).destroy()
+		Rails.logger.debug(params[:user_name])
+		User.find_by(user_name: params[:user_name]).destroy()
 		respond_to do |format|
 			format.js {}
 		end

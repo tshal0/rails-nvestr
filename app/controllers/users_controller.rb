@@ -39,8 +39,8 @@ class UsersController < ApplicationController
 	# launch modal for adding user. 
 	def add_user
 		@user = User.new 
-		@header_attribs = ['Username', 'Email', 'Password']
-		@all_attribs = ['username', 'email', 'password']
+		@header_attribs = ['user_name', 'Email', 'Password']
+		@all_attribs = ['user_name', 'email', 'password']
 		respond_to do |format| 
 			format.js {}
 		end
@@ -48,10 +48,10 @@ class UsersController < ApplicationController
 
 
 	private
-		# Require/permit username|email|password for initial registration
+		# Require/permit user_name|email|password for initial registration
 		def user_params
 			params.require(:user).permit(
-				:username, 
+				:user_name, 
 				:email,
 				:password)
 		end

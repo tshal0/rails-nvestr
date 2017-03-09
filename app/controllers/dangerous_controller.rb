@@ -6,12 +6,12 @@ class DangerousController < ApplicationController
 
 		# Needs registration attribs:
 
-		@required_user_attributes = ["username",
+		@required_user_attributes = ["user_name",
 			"email",
 			"password"
 		]
 
-		@header_user_attributes = ["Username:",
+		@header_user_attributes = ["user_name:",
 			"Email:",
 			"Password:"
 		]
