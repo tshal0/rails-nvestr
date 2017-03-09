@@ -21,10 +21,19 @@ Rails.application.routes.draw do
 
   get 'portfolio' => 'portfolios#load'
 
+  # Stock Routes
+
+  get 'add_stock' => 'stocks#add_stock'
+  get 'update_stock' => 'stocks#update_stock'
+  post 'create_stock' => 'stocks#create'
+  patch 'update_stock' => 'stocks#edit_stock'
+
+
   # Admin Routes
 
   get 'admin' => 'admin#dashboard'
   get 'manage_users' => 'admin#manage_users'
+  get 'manage_stocks' => 'admin#manage_stocks'
   get 'delete_user' => 'admin#delete_user'
 
 end
