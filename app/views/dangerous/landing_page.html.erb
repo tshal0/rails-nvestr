@@ -34,10 +34,19 @@
 		                  </td>
 		                </tr>
 		              <% end %>
+		              <tr>
+		              	<td>Role:</td>
+		              	<td>
+		              		<% options = options_from_collection_for_select(@roles, 'id', 'role_name') %>
+		              		<%= select_tag "role", options %>
+		              	</td>
+		              </tr>
 					</tbody>
 				</table>
 			</div>
-				
+						              <!-- Role dropdown -->
+	              		
+						
 		</div>
 		<div class="row fix-row">
 			<div class="col-sm-12 center">

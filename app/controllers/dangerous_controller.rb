@@ -16,6 +16,8 @@ class DangerousController < ApplicationController
 			"Password:"
 		]
 
+		@roles = Role.all
+
 	end
 
 	# Home page btn routes to this action. 

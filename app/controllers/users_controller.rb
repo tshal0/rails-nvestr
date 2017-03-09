@@ -5,10 +5,12 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+
 		Rails.logger.info(@user)
 		if @user.save
 			# TODO: cache the user id for the session. 
 			session[:user_id] = @user.id
+			@user.add_role(Role.find(params[:role]))
 			# Need a logged-in landing page. 
 			redirect_to root_path
 		else

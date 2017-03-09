@@ -17,3 +17,22 @@ default_users = [
 default_users.each do |user_name, email, password|
 	User.create(user_name: user_name, email: email, password: password)
 end
+
+# Default Roles: role_name
+
+default_roles = ["admin", "trader"]
+
+default_roles.each do |role_name|
+	Role.create(role_name: role_name)
+end
+
+# Default UserToRoles: thomas:admin, brooklyn:trader
+
+default_utr = [
+[1, 1],
+[2, 2]
+]
+
+default_utr.each do |user_id, role_id|
+	UserToRole.create(user_id: user_id, role_id: role_id)
+end
