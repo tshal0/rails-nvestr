@@ -8,6 +8,7 @@
       <!-- @attribs and @headers -->
       <div class="modal-body">
         <%= form_for @stock, url: update_stock_path, remote: true do |f| %>
+          <%= f.hidden_field :id %>
           <table align="center" class="table table-striped table-bordered">
             <tbody class="center">
               <% @headers.zip(@attribs).each do |header, attribute| %>

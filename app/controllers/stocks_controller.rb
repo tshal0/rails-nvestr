@@ -44,7 +44,7 @@ class StocksController < ApplicationController
 
 	def edit_stock
 
-		@stock = Stock.find_by(stock_symbol: params[:stock][:stock_symbol])
+		@stock = Stock.find(params[:stock][:id])
 		@stock.update_attributes(stock_params)
 
 
@@ -57,6 +57,7 @@ class StocksController < ApplicationController
 	private
 		def stock_params
 			params.require(:stock).permit(
+				:id,
 				:stock_name,
 				:stock_symbol,
 				:stock_price)
