@@ -45,9 +45,8 @@ class StocksController < ApplicationController
 	def edit_stock
 
 		@stock = Stock.find_by(stock_symbol: params[:stock][:stock_symbol])
+		@stock.update_attributes(stock_params)
 
-		@stock.save
-		
 
 		respond_to do |format|
 			format.js {}
