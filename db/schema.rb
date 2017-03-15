@@ -11,15 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309024730) do
+ActiveRecord::Schema.define(version: 20170309040615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string   "portfolio_name"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.decimal  "position_amount"
+    t.integer  "stock_id"
+    t.integer  "portfolio_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "role_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stocks", force: :cascade do |t|
+    t.string   "stock_name"
+    t.string   "stock_symbol"
+    t.decimal  "stock_price"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.string   "trade_type"
+    t.decimal  "trade_amount"
+    t.decimal  "trade_price"
+    t.datetime "trade_datetime"
+    t.integer  "stock_id"
+    t.integer  "position_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "user_to_roles", force: :cascade do |t|

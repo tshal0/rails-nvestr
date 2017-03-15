@@ -1,0 +1,19 @@
+  <div id="manageUserRoles" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="modalHeader" class="center">User Roles</h4>
+      </div>
+      <div class="modal-body">
+          <table align="center" class="table table-striped table-bordered">
+            <tbody class="center">
+              <% @user_roles.each do |user_role| %>
+                <tr>
+                  <td><%= user_role[0].role_name %></td>
+                  <td><%= check_box_tag(:test, value = "1", checked = user_role[1]) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>

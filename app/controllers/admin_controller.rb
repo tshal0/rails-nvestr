@@ -30,14 +30,7 @@ class AdminController < ApplicationController
 	def manage_portfolios
 	end
 
-	def delete_user
-		# delete the user, reload the table
-		Rails.logger.debug(params[:user_name])
-		User.find_by(user_name: params[:user_name]).destroy()
-		respond_to do |format|
-			format.js {}
-		end
-	end
+	
 
 
 end

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   # User Routes
 
   get 'add_user' => 'users#add_user'
+  get 'manage_user' => 'users#manage_user'
+  get 'delete_user' => 'users#delete_user'
+  patch 'manage_user' => 'users#edit_user'
+  get 'manage_user_roles' => 'users#manage_roles'
+
 
   # path used by Register button
   post 'register_user' => 'users#create'
@@ -25,6 +30,5 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#dashboard'
   get 'manage_users' => 'admin#manage_users'
-  get 'delete_user' => 'admin#delete_user'
 
 end
