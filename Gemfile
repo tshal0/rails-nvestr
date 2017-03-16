@@ -29,11 +29,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Bootstrap Gem
 gem 'bootstrap-sass', '~> 3.3.1'
 
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 gem 'rails_serve_static_assets'
 
-gem 'rails_stdout_logging'
+gem 'rails_stdout_logging', group: :production
 
 # Auto prefixes browser vendor
 # gem 'autoprefixer-rails'

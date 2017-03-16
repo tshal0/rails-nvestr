@@ -62,6 +62,23 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def update_user_roles
+		# params[:role_check] is the array of enabled roles. 
+		role_checks = params[:role_check]
+
+		if role_checks.empty? then
+		else
+			UserToRole.where(:user_id => params[:user_id]).destroy_all
+			role_checks.each do |role_id|
+				UserToRole.create(user_id: params[:user_id], role_id: role_id)
+			end
+		end
+		respond_to do |format|
+			format.js {}
+		end
+
+	end
+
 	def update
 	end
 

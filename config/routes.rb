@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'delete_user' => 'users#delete_user'
   patch 'manage_user' => 'users#edit_user'
   get 'manage_user_roles' => 'users#manage_roles'
+  patch 'update_user_roles' => 'users#update_user_roles'
 
 
   # path used by Register button
