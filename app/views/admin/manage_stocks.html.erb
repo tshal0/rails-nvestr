@@ -1,20 +1,21 @@
+<!-- Page for managing Users.  -->
+
 <% content_for :sidebar do %>
 <!-- sidebar content -->
-	<%= render :partial => "portfolios/sidebar" %>
+	<%= render :partial => "layouts/sidebar" %>
 <% end %>
 
-<div class ="portfolioDiv">
-
-	<h1>Portfolio</h1>
-	<h3>Manage your portfolio of investments here.</h3>
+<div class="manageStocks">
+	<h1>Stocks</h1>
+	<h3>Manage stocks here.</h3>
 
 	<table class="table table-line">
 		<tbody><tr><td></td></tr></tbody>
 	</table>
 
-	<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
+	<%= link_to add_stock_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
 		 <span class="glyphicon"></span>
-		 Add Position
+		 Add Stock
 	<% end %>
 	<table class="table table-bordered">
 		<thead>
@@ -27,17 +28,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @position_stock.each do |position, stock| %>
+			<% @stocks.each do |stock| %>
 				<tr id="<%=	stock.id %>">
 					<td><%=	stock.stock_name %></td>
 					<td><%=	stock.stock_symbol %></td>
 					<td><%=	stock.stock_price %></td>
-					<td><%= position.position_amount %></td>
-					<td><%= position.value %></td>
+					<td>Never</td>
 					<td>
 						<div class="center">
-							<%= link_to update_position_path(:position_id => position.id), :remote => true, class: 'btn btn-primary' do %>
-								<span>Modify Position</span>
+							<%= link_to update_stock_path(:stock_id => stock.id), :remote => true, class: 'btn btn-primary' do %>
+								<span>Update</span>
 							<% end %>
 						</div>
 					</td>

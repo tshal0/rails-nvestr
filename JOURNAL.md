@@ -20,6 +20,9 @@ Second Goal:
 3. Position
 4. Portfolio
 
+
+	10:15 added migrations
+
 Third Goal:
 1. Role Selection in User Creation
 2. Role Addition/Removal from User
@@ -32,4 +35,23 @@ Fourth Goal:
 
 # <Next Entry>
 
+
+3/17
+
+# Portfolio/Exchange
+
+positions have:
+
+position_amount
+stock_id
+portfolio_id
+
+And are modified by Trades. 
+
+Trades require: 
+trade_type
+trade_price
+trade_amount
+stock_id
+position_id
 

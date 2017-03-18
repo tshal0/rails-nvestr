@@ -26,10 +26,28 @@ Rails.application.routes.draw do
   # Portfolio Routes
 
   get 'portfolio' => 'portfolios#load'
+  get 'update_position' => 'portfolios#update_position'
+  patch 'update_position' => 'portfolios#save_position'
+
+  # Stock Routes
+
+  get 'add_stock' => 'stocks#add_stock'
+  get 'update_stock' => 'stocks#update_stock'
+  post 'create_stock' => 'stocks#create'
+  patch 'update_stock' => 'stocks#edit_stock'
+
 
   # Admin Routes
 
-  get 'admin' => 'admin#dashboard'
+  get 'admin' => 'admin#manage_users'
   get 'manage_users' => 'admin#manage_users'
+  get 'manage_stocks' => 'admin#manage_stocks'
+  get 'delete_user' => 'admin#delete_user'
+
+  # Exchange Routes
+
+  get 'exchange' => 'exchange#view'
+  get 'create_trade' => 'exchange#create_trade'
+
 
 end

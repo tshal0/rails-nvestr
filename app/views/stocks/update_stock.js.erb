@@ -1,0 +1,9 @@
+$("#modal-window").html("<%= escape_javascript render(:partial => '/stocks/update_stock') %>");
+$('#modal-window').modal('show');
+
+$("#updateStockBtn").on('click', function() {
+	// Hide the modal. 
+	$("#modal-window").modal('hide');
+	// The table refresh needs to happen AFTER the database has been updated. 
+
+})

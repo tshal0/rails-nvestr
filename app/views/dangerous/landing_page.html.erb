@@ -1,11 +1,15 @@
 <!-- Landing Page for non-users of Nvestr -->
 
+<% content_for :sidebar do %>
+<!-- sidebar content -->
+	<%= render :partial => "dangerous/sidebar" %>
+<% end %>
 
 <!-- Introduce the User to Nvestr -->
 
 <div class ="center">
 
-	<h1 class="center jumbotron">Nvestr</h1>
+	<h1 class="center jumbotron nvestr-header">Nvestr</h1>
 	<h2>
 		A simple, social investing simulator. 
 	</h2>
