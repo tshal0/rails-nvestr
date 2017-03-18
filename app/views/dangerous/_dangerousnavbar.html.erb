@@ -1,5 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid half-width">
+  	<ul class="nav navbar-nav navbar-left">
+      <li> <%= link_to 'NVESTR', root_path, method: "get" %> </li>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
       <li> <%= link_to 'Login', login_path, :remote => true %> </li>
     </ul>

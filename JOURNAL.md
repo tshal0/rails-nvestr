@@ -34,4 +34,21 @@ Fourth Goal:
 
 # <Next Entry>
 
+3/17
 
+# Portfolio/Exchange
+
+positions have:
+
+position_amount
+stock_id
+portfolio_id
+
+And are modified by Trades. 
+
+Trades require: 
+trade_type
+trade_price
+trade_amount
+stock_id
+position_id

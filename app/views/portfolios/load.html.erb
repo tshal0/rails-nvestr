@@ -1,39 +1,48 @@
-
+<% content_for :sidebar do %>
+<!-- sidebar content -->
+	<%= render :partial => "portfolios/sidebar" %>
+<% end %>
 
 <div class ="portfolioDiv">
 
-	<div class="row fix-row">
-		<div class="col-sm-12 center">
-			<div class="half-width">
-				<h1 style="text-align:left">Portfolio</h1>
+	<h1>Portfolio</h1>
+	<h3>Manage your portfolio of investments here.</h3>
 
+	<table class="table table-line">
+		<tbody><tr><td></td></tr></tbody>
+	</table>
 
-				<!-- Total Value -->
-				<h2>Total Value: $10,000</h2>
-				<!-- Stock Table -->
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>Symbol</th>
-							<th>Name</th>
-							<th>Price</th>
-							<th>Shares</th>
-							<th>Value</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>ABC</td>
-							<td>Alphabet Corp.</td>
-							<td>$100.00</td>
-							<td>5</td>
-							<td>$500.00</td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- Performance Charts -->
-
-			</div>
-		</div>
-	</div>
+	<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
+		 <span class="glyphicon"></span>
+		 Add Position
+	<% end %>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<% @headers.each do | header | %>
+					<td>
+						<%= header %>
+					</td>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @position_stock.each do |position, stock| %>
+				<tr id="<%=	stock.id %>">
+					<td><%=	stock.stock_name %></td>
+					<td><%=	stock.stock_symbol %></td>
+					<td><%=	stock.stock_price %></td>
+					<td><%= position.position_amount %></td>
+					<td><%= position.value %></td>
+					<td>
+						<div class="center">
+							<%= link_to update_position_path(:position_id => position.id), :remote => true, class: 'btn btn-primary' do %>
+								<span>Modify Position</span>
+							<% end %>
+						</div>
+					</td>
+				</tr>
+			<% end	%>
+		</tbody>
+	</table>
 </div>

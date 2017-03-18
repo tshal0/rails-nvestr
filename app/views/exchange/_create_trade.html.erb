@@ -1,0 +1,18 @@
+  <div id="createTrade" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="modalHeader" class="center">Create Trade</h4>
+      </div>
+      <!-- @all_attribs and @header_attribs -->
+      <div class="modal-body">
+        <%= form_for @trade, url: create_trade_path, remote: true do |f| %>
+          <table align="center" class="table table-striped table-bordered">
+            <tbody class="center">
+              
+            </tbody>
+          </table>
+          <%= f.submit "Execute Trade", :id => "createTradeBtn", class: "btn btn-primary" %> 
+        <% end %>
+      </div>
+    </div>
+  </div>
