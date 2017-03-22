@@ -6,6 +6,10 @@
 class ExchangeController < ApplicationController
 
 	def view
+		@stocks = Stock.all
+		@headers = ['Company Name', "Symbol", "Price", "Last Updated", "Actions"]
+		@attribs = ['stock_name', 'stock_symbol', 'stock_price']
+
 
 		respond_to do |format|
 			format.html {}

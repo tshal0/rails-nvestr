@@ -1,3 +1,23 @@
 // Place all the styles related to the Exchange controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.modal-table{
+    border: 1px solid black;
+    table-layout: fixed;
+    width: 500px;
+}
+
+#tradeTable th td {
+    border: 1px solid black;
+    width: 250px;
+    vertical-align: middle !important;
+}
+
+#tradeTable .header-td {
+	vertical-align: middle;
+}
+.select-class {
+	width: 150px;
+}

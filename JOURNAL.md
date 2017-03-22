@@ -55,3 +55,37 @@ trade_amount
 stock_id
 position_id
 
+
+3/21
+
+Going to work on Position and Trades. Must create a Position by initializing the Position with a stock id, then immediately create a trade to modify that position. 
+
+Must populate the Create Trade modal with a few things:
+
+Stock Symbol
+Trade Type dropdown
+Price (Market or limit)
+Sell Limit (stop loss)
+Amount of shares (slider, with editable text box based on value in portfolio cash account)
+
+That reminds me, I need to add portfolio cash value to the portfolio page. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

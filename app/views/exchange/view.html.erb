@@ -2,4 +2,45 @@
 <!-- sidebar content -->
 	<%= render :partial => "exchange/sidebar" %>
 <% end %>
-<h1>Exchange Page</h1>
+
+<div class="exchange">
+	<h1>Exchange</h1>
+	<h3>Trade stocks here.</h3>
+
+	<table class="table table-line">
+		<tbody><tr><td></td></tr></tbody>
+	</table>
+
+	<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
+		 <span class="glyphicon"></span>
+		 Create Order
+	<% end %>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<% @headers.each do | header | %>
+					<td>
+						<%= header %>
+					</td>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @stocks.each do |stock| %>
+				<tr id="<%=	stock.id %>">
+					<td><%=	stock.stock_name %></td>
+					<td><%=	stock.stock_symbol %></td>
+					<td><%=	stock.stock_price %></td>
+					<td>Never</td>
+					<td>
+						<div class="center">
+							<%= link_to create_trade_path(:stock_id => stock.id), :remote => true, class: 'btn btn-primary' do %>
+								<span>Trade</span>
+							<% end %>
+						</div>
+					</td>
+				</tr>
+			<% end	%>
+		</tbody>
+	</table>
+</div>
