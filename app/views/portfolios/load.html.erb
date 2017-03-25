@@ -5,12 +5,31 @@
 
 <div class ="portfolioDiv">
 
-	<h1>Portfolio</h1>
-	<h3>Manage your portfolio of investments here.</h3>
+	<h1 class='center'>Portfolio</h1>
+	<h3 class='center'>Manage your portfolio of investments here.</h3>
 
 	<table class="table table-line">
 		<tbody><tr><td></td></tr></tbody>
 	</table>
+
+	<table class="table table-bordered">
+		<tbody>
+			<tr>
+				<td>Invested Value:</td>
+				<td><%=  @portfolio.stock_value %></td>
+			</tr>
+			<tr>
+				<td>Cash Value:</td>
+				<td><%= @portfolio.portfolio_cash_account %></td>
+			</tr>
+			<tr>
+				<td class="tval-td-class"><h4> Total Portfolio Value:</h4></td>
+				<td id="totalVal" class='tval-td-class'><b><%= @portfolio.total_value %></b></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br>
 
 	<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
 		 <span class="glyphicon"></span>
