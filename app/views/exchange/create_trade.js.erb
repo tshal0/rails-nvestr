@@ -1,3 +1,4 @@
+
 $("#modal-window").html("<%= escape_javascript render(:partial => '/exchange/create_trade') %>");
 $('#modal-window').modal('show');
 
@@ -9,4 +10,10 @@ $('.modal ').insertAfter($('body'));
 
 $(document).ready(function() {
   $(".select-class").select2();
+});
+
+$("input[name='price']").change( function(){
+	if ($("#limitPrice").prop("checked")) {$("#tradePrice").attr("disabled", false); }
+	else {  $("#tradePrice").attr("disabled", true); }
+
 });

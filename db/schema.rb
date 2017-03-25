@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309040615) do
+ActiveRecord::Schema.define(version: 20170325183008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,13 @@ ActiveRecord::Schema.define(version: 20170309040615) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "trade_types", force: :cascade do |t|
+    t.string   "trade_type_name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "trades", force: :cascade do |t|
-    t.string   "trade_type"
     t.decimal  "trade_amount"
     t.decimal  "trade_price"
     t.datetime "trade_datetime"
@@ -54,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170309040615) do
     t.integer  "position_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "trade_type"
   end
 
   create_table "user_to_roles", force: :cascade do |t|

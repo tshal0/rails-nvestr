@@ -4,7 +4,7 @@
         <h4 id="modalHeader" class="center">Create Trade</h4>
       </div>
       <!-- @all_attribs and @header_attribs -->
-      <div class="modal-body">
+      <div class="modal-body center">
         <%= form_for @trade, url: create_trade_path, remote: true do |f| %>
           <table id='tradeTable' align="center" class="modal-table table table-striped table-bordered">
             <tbody class="center">
@@ -14,10 +14,31 @@
                   <%= f.collection_select(:stock_id, Stock.all, :id, :stock_symbol, {}, {class: "select-class"}) %>
                 </td>
               </tr>
-              
+              <tr>
+                <td class='header-td'>Trade Type</td>
+                <td>
+                  <%= f.collection_select(:trade_type, TradeType.all, :id, :trade_type_name, {}, {class: "select-class"}) %>
+                </td>
+              </tr>
+              <tr>
+                <td class='header-td'>Buy Price</td>
+                <td>
+                  Market Price:
+                  <input type="radio" name="price" value="true"><br>
+                  Limit: 
+                  <input id="limitPrice" type="radio" name="price" value="false"><br>
+                  <%= f.text_field :trade_price, id: "tradePrice", disabled: true%>
+                </td>
+              </tr>
+              <tr>
+                <td class='header-td'>Sell Price</td>
+                <td>
+                  <%= f.text_field :trade_amount %>
+                </td>
+              </tr>
             </tbody>
           </table>
-          <%= f.submit "Execute Trade", :id => "createTradeBtn", class: "btn btn-primary" %> 
+          <%= f.submit "Execute Trade", :id => "createTradeBtn", class: "btn btn-primary center" %> 
         <% end %>
       </div>
     </div>

@@ -78,3 +78,42 @@ default_positions.each do |position_amount, stock_id, portfolio_id|
 	Position.create(position_amount: position_amount, stock_id: stock_id, portfolio_id: portfolio_id)
 end
 
+default_trade_types = ['BUY', 'SELL']
+
+default_trade_types.each do |type|
+	TradeType.create(trade_type_name: type)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
