@@ -41,11 +41,11 @@ end
 # Default Portfolios: portfolio_name, user_id
 
 default_portfolios = [
-	["Test Portfolios", User.find_by(user_name: "thomas").id]
+	["Test Portfolios", User.find_by(user_name: "thomas").id, 100000.00]
 ]
 
-default_portfolios.each do |portfolio_name, user_id|
-	Portfolio.create(portfolio_name: portfolio_name, user_id: user_id)
+default_portfolios.each do |portfolio_name, user_id, cash_account|
+	Portfolio.create(portfolio_name: portfolio_name, user_id: user_id, portfolio_cash_account: cash_account)
 end
 
 # Default Stocks: stock_name, stock_symbol, stock_price

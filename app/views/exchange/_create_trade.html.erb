@@ -24,16 +24,16 @@
                 <td class='header-td'>Buy Price</td>
                 <td>
                   Market Price:
-                  <input type="radio" name="price" value="true"><br>
+                  <input type="radio" name="price" value="true" checked="true"><br>
                   Limit: 
                   <input id="limitPrice" type="radio" name="price" value="false"><br>
                   <%= f.text_field :trade_price, id: "tradePrice", disabled: true%>
                 </td>
               </tr>
               <tr>
-                <td class='header-td'>Sell Price</td>
+                <td class='header-td'>Trade Amount (Shares)</td>
                 <td>
-                  <%= f.text_field :trade_amount %>
+                  <%= f.text_field :trade_amount, :required => true%>
                 </td>
               </tr>
             </tbody>

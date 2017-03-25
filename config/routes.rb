@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 
   get 'exchange' => 'exchange#view'
   get 'create_trade' => 'exchange#create_trade'
+  post 'create_trade' => 'exchange#execute_trade'
 
 
 end
