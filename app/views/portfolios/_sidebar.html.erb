@@ -2,4 +2,21 @@
 	<ul class="nav nav-pills nav-stacked">
 		<li> <%= link_to 'Create Position', create_trade_path, :remote => true %> </li>
 	</ul>
+	<table class="table table-sidebar">
+		<tbody>
+			<tr>
+				<td>Invested:</td>
+				<td><%= number_to_currency(@portfolio.stock_value) %></td>
+			</tr>
+			<tr>
+				<td>Cash:</td>
+				<td><%= number_to_currency(@portfolio.portfolio_cash_account) %></td>
+			</tr>
+			<tr>
+				<td class="tval-td-class">Total:</td>
+				<td id="totalVal" class='tval-td-class'><%= number_to_currency(@portfolio.total_value) %></td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>

@@ -12,25 +12,7 @@
 		<tbody><tr><td></td></tr></tbody>
 	</table>
 
-	<table class="table table-bordered">
-		<tbody>
-			<tr>
-				<td>Invested Value:</td>
-				<td><%=  @portfolio.stock_value %></td>
-			</tr>
-			<tr>
-				<td>Cash Value:</td>
-				<td><%= @portfolio.portfolio_cash_account %></td>
-			</tr>
-			<tr>
-				<td class="tval-td-class"><h4> Total Portfolio Value:</h4></td>
-				<td id="totalVal" class='tval-td-class'><h4><%= @portfolio.total_value %></h4></td>
-			</tr>
-		</tbody>
-	</table>
-
-	<br>
-
+	
 	<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
 		 <span class="glyphicon"></span>
 		 Add Position
@@ -50,9 +32,9 @@
 				<tr id="<%=	stock.id %>">
 					<td><%=	stock.stock_name %></td>
 					<td><%=	stock.stock_symbol %></td>
-					<td><%=	stock.stock_price %></td>
+					<td><%=	number_to_currency(stock.stock_price) %></td>
 					<td><%= position.position_amount %></td>
-					<td><%= position.value %></td>
+					<td><%= number_to_currency(position.value) %></td>
 					<td>
 						<div class="center">
 							<%= link_to update_position_path(:position_id => position.id), :remote => true, class: 'btn btn-primary' do %>
@@ -64,4 +46,12 @@
 			<% end	%>
 		</tbody>
 	</table>
+	<br>
+	<br>
+
+	<table class="table table-line">
+		<tbody><tr><td></td></tr></tbody>
+	</table>
+	<br>
+
 </div>

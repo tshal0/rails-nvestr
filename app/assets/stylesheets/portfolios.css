@@ -2,11 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tval-td-class {
+/*.tval-td-class {
 	border-top: 2px solid #286090 !important;
-}
+}*/
 
 #totalVal {
 	vertical-align: middle;
 	width:25%;
+}
+
+.table-sidebar {
+	width:50%;
+	margin-left: 10px;
+}
+
+.table-sidebar tbody tr td {
+	border-top: 0px !important;
+}
+
+.table-sidebar-header-td {
+	text-align: right;
 }
