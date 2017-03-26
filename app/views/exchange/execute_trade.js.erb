@@ -1,2 +1,9 @@
-$('#modal-window').modal('hide');
-location.reload()
+
+
+<% if @error == "NONE" then %>
+	$('#modal-window').modal('hide');
+	location.reload()
+<% else %>
+	// Display error here. 
+	console.log("<%= @error %>")
+<% end %>

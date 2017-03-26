@@ -27,7 +27,7 @@
                   <input type="radio" name="price" value="true" checked="true"><br>
                   Limit: 
                   <input id="limitPrice" type="radio" name="price" value="false"><br>
-                  <%= f.text_field :trade_price, id: "tradePrice", disabled: true%>
+                  <input type="text", id="tradePrice", disabled="true">
                 </td>
               </tr>
               <tr>
@@ -38,6 +38,9 @@
               </tr>
             </tbody>
           </table>
+          <%= f.hidden_field :position_id %>
+          <%= f.hidden_field :trade_price %>
+          <%= f.hidden_field :trade_datetime %>
           <%= f.submit "Execute Trade", :id => "createTradeBtn", class: "btn btn-primary center" %> 
         <% end %>
       </div>
