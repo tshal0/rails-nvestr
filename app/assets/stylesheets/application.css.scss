@@ -4,7 +4,6 @@
 @import "simple-sidebar";
 @import "dangerous";
 @import "admin";
-@import "select2";
 @import "exchange";
 @import "portfolios";
 body {
@@ -63,6 +62,10 @@ body {
 }
 .manageUser {
 	width:100%;
+}
+
+.btn-add-user {
+	margin-bottom: 20px !important;
 }
 
 .nvestr-header {
