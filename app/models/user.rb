@@ -10,4 +10,13 @@ class User < ActiveRecord::Base
 	def has_role(role)
 		return UserToRole.exists?(:user_id => self.id, :role_id => role.id)
 	end
+
+	def is_admin
+		role = Role.find_by(:role_name => "admin")
+		return UserToRole.exists?(:user_id => self.id, :role_id => role.id )
+	end
+
+	def to_param
+		user_name
+	end
 end

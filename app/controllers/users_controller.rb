@@ -1,6 +1,19 @@
 class UsersController < ApplicationController
 
-	def new
+	def show
+		# Profile page
+		Rails.logger.info(params)
+		@user = User.find_by(user_name: params[:id])
+		@current_user = User.find(session[:user_id])
+		@is_admin = false
+		if @user.id == @current_user.id || @current_user.is_admin then
+			@is_admin = true
+			@header_attribs = ['Username', 'Email', 'New Password']
+			@all_attribs = ['user_name', 'email', 'password']
+		end
+		respond_to do |format|
+			format.html {}
+		end
 	end
 
 	def create
@@ -26,8 +39,9 @@ class UsersController < ApplicationController
 
 	def manage_user
 		@user = User.find_by(user_name: params[:user_name])
-		@header_attribs = ['Username', 'Email']
-		@all_attribs = ['user_name', 'email']
+		@header_attribs = ['Username', 'Email', 'New Password']
+		@all_attribs = ['user_name', 'email', 'password']
+
 		respond_to do |format|
 
 			format.js {}

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'manage_user_roles' => 'users#manage_roles'
   patch 'update_user_roles' => 'users#update_user_roles'
 
+  # Resources
+  resources :users
+
 
   # path used by Register button
   post 'register_user' => 'users#create'

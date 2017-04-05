@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row row-navbar">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="col-sm-2"></div>
@@ -11,7 +11,7 @@
           <li> <%= link_to 'Admin Dashboard', admin_path %> </li>
         <li> <%= link_to 'Portfolio', portfolio_path %> </li>
         <li> <%= link_to 'Exchange', exchange_path %> </li>
-        <li> <%= link_to 'Account', portfolio_path %> </li>
+        <li> <%= link_to 'Profile', user_path(:id => current_user.user_name) %> </li>
         <li> <%= link_to 'Log Out', logout_path, method: "delete" %> </li>
         </ul>
       </div>
