@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   # Resources
   resources :users
-
+  resources :stocks
 
   # path used by Register button
   post 'register_user' => 'users#create'

@@ -4,7 +4,12 @@
 
 class StocksController < ApplicationController
   
-	def new
+	def index
+		Rails.logger.info(params)
+		@stock = Stock.find_by(stock_symbol: params[:stock_symbol])
+		respond_to do |format|
+			format.html {}
+		end
 	end
 
 	def create

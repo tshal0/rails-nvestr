@@ -1,0 +1,13 @@
+<% content_for :sidebar do %>
+<!-- sidebar content -->
+	<%= render :partial => "stocks/sidebar" %>
+<% end %>
+
+<div id="stockProfile">
+	<h1><%= @stock.stock_name %></h1>
+	<table class="table table-line">
+		<tbody><tr><td></td></tr></tbody>
+	</table>
+
+	<h3>Current Price:<%= number_to_currency(@stock.stock_price) %></h3>
+</div>
