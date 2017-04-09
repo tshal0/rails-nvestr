@@ -29,7 +29,7 @@
 		<tbody>
 			<% @users.each do |user| %>
 				<tr id="<%=	user.user_name %>">
-					<td><%=	user.user_name %></td>
+					<td><%= link_to user.user_name, portfolio_path(:id => user.user_name) %> </td>
 					<td><%=	user.email %></td>
 					<td>Active</td>
 					<td>

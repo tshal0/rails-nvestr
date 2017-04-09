@@ -23,9 +23,15 @@ class UsersController < ApplicationController
 		if @user.save
 			# TODO: cache the user id for the session. 
 			session[:user_id] = @user.id
-			@user.add_role(Role.find(params[:role]))
+			if params[:role] then
+				@user.add_role(Role.find(params[:role]))
+			else
+				@user.add_role(Role.find_by(role_name: "admin"))
+			end
+			
+			Portfolio.create(portfolio_name: 'Portfolio', user_id: @user.id, portfolio_cash_account: 100000.00)
 			# Need a logged-in landing page. 
-			redirect_to root_path
+			redirect_to user_path(:id => @user.user_name)
 		else
 			# Unsuccessful login. 
 			Rails.logger.info(@user.errors.full_messages)

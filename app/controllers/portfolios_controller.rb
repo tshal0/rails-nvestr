@@ -43,5 +43,37 @@ class PortfoliosController < ApplicationController
   def save_position
 
   end
+
+  def show
+    @user = User.find_by(user_name: params[:id])
+    @current_user = User.find(session[:user_id])
+    @portfolio = Portfolio.find_by(user_id: @user.id)
+    @positions = Position.where(portfolio_id: @portfolio.id)
+    @stocks = []
+    @positions.each do |pos|
+      @stocks << Stock.find(pos.stock_id)
+    end
+    @position_stock = @positions.zip(@stocks)
+    @headers = ['Company Name', "Symbol", "Price", "Amount", "Value","Actions"]
+
+
+    respond_to do |format|
+      format.html { render :template => 'portfolios/load'}
+    end
+
+  end
   
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

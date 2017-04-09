@@ -12,10 +12,11 @@
 		<tbody><tr><td></td></tr></tbody>
 	</table>
 
-	
-	<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
-		 <span class="glyphicon"></span>
-		 Add Position
+	<% if @user.id == @current_user.id || @current_user.is_admin then %>
+		<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
+			 <span class="glyphicon"></span>
+			 Add Position
+		<% end %>
 	<% end %>
 	<table class="table table-bordered">
 		<thead>

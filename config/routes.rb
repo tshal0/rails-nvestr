@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Resources
   resources :users
   resources :stocks
+  resources :portfolios
 
   # path used by Register button
   post 'register_user' => 'users#create'
@@ -45,7 +46,6 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#manage_users'
   get 'manage_users' => 'admin#manage_users'
   get 'manage_stocks' => 'admin#manage_stocks'
-  get 'delete_user' => 'admin#delete_user'
 
   # Exchange Routes
 

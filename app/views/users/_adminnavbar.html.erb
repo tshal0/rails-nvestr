@@ -5,14 +5,14 @@
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
         <ul class="nav navbar-nav navbar-left">
-          <li> <%= link_to 'NVESTR', portfolio_path %> </li>
+          <li> <%= link_to 'NVESTR', portfolio_path(:id => current_user.user_name) %> </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li> <%= link_to 'Admin Dashboard', admin_path %> </li>
-        <li> <%= link_to 'Portfolio', portfolio_path %> </li>
+        <li> <%= link_to 'Portfolio', portfolio_path(:id => current_user.user_name) %> </li>
         <li> <%= link_to 'Exchange', exchange_path %> </li>
         <li> <%= link_to 'Profile', user_path(:id => current_user.user_name) %> </li>
-        <li> <%= link_to 'Log Out', logout_path, method: "delete" %> </li>
+        <li> <%= link_to 'Log Out', logout_path(:user_id => current_user.id), method: "delete" %> </li>
         </ul>
       </div>
       <div class="col-sm-2"></div>

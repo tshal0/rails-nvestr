@@ -20,6 +20,7 @@
   <div class="tab-pane active" id="profile" role="tabpanel">
   	<h3><%= @user.user_name %></h3>
  	<h4><%= @user.email %></h4>
+ 	<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
   </div>
   <div class="tab-pane" id="activity" role="tabpanel">Activity</div>
   <% if @is_admin then %>

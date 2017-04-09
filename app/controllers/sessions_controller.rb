@@ -50,7 +50,7 @@ class SessionsController < ApplicationController
 		def login
 			session[:user_id] = @user.id
 			# Redirect to user portfolio
-			redirect_to portfolio_path
+			redirect_to user_path(:id => current_user.user_name)
 		end
 
 end
