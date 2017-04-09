@@ -30,8 +30,7 @@ Rails.application.routes.draw do
   # Portfolio Routes
 
   get 'portfolio' => 'portfolios#load'
-  get 'update_position' => 'portfolios#update_position'
-  patch 'update_position' => 'portfolios#save_position'
+  get 'position_history' => 'portfolios#position_history'
 
   # Stock Routes
 

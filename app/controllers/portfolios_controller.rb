@@ -30,8 +30,9 @@ class PortfoliosController < ApplicationController
 
   end
 
-  def update_position
+  def position_history
     @position = Position.find(params[:position_id])
+    @trades = Trade.where(position_id: @position.id)
 
     respond_to do |format|
 

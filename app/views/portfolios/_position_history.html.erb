@@ -1,0 +1,25 @@
+  <div id="updatePosition" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="modalHeader" class="center">Trade Activity</h4>
+      </div>
+      <!-- @all_attribs and @header_attribs -->
+      <div class="modal-body">
+        
+          <table align="center" class="table table-striped table-bordered">
+            <tbody class="center">
+              <% @trades.each do |trade| %>
+                <tr>
+                  <td><%= trade.type %></td>
+                  <td><%= trade.trade_amount %></td>
+                  <td><%= trade.trade_price %></td>
+                  <td><%= trade.trade_datetime %></td>
+                  <td><%= trade.current_price %></td>
+                  <td><%= trade.change %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
