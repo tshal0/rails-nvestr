@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   get 'portfolio' => 'portfolios#load'
   get 'position_history' => 'portfolios#position_history'
+  get 'portfolio_history' => 'portfolios#portfolio_history'
 
   # Stock Routes
 

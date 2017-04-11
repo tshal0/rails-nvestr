@@ -41,6 +41,16 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def portfolio_history
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @position_ids = Position.where(portfolio_id: @portfolio.id).select("id")
+    @trades = Trade.where(position_id: @position_ids)
+
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
   def save_position
 
   end

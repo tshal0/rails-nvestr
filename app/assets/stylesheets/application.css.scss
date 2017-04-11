@@ -28,6 +28,10 @@ body {
 	align-items: center;
 }
 
+.table-headers-bold thead tr td{
+	font-weight:bold;
+}
+
 .fix-row {
 	margin-left: 0px !important;
 	margin-right: 0px !important;
@@ -81,3 +85,4 @@ body {
 .row-navbar {
 	margin-bottom: 20px;
 }
+

@@ -49,13 +49,13 @@ class ExchangeController < ApplicationController
 			# Tried to sell shares we don't have. 
 
 			@error = "Position does not exist."
-
+			Rails.logger.info(@error)
 			respond_to do |format|
 				format.js {}
 			end
 		end
 
-		params[:trade][:position_id] = position.id
+		
 		params[:trade][:trade_datetime] = DateTime.current
 		# Check if we're using market price or queueing a trade. 
 		if params[:price] == "true" then
@@ -65,7 +65,7 @@ class ExchangeController < ApplicationController
 
 
 		trade = Trade.new(trade_params)
-
+		
 		# Modify the positions accordingly
 
 
@@ -107,8 +107,9 @@ class ExchangeController < ApplicationController
 		end
 
 		if @error == "NONE"
-			trade.save
 			position.save
+			trade.position_id = position.id
+			trade.save
 			portfolio.save
 		end
 
