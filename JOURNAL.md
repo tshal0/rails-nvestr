@@ -70,6 +70,13 @@ Amount of shares (slider, with editable text box based on value in portfolio cas
 
 That reminds me, I need to add portfolio cash value to the portfolio page. 
 
+#################################
+
+
+
+
+https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?api_key=xNSxrMU_zRKHVD-7TKxJ
+
 
 
 

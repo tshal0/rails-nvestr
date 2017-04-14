@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,6 +34,12 @@ gem 'rails_12factor', group: :production
 gem 'rails_serve_static_assets'
 
 gem 'rails_stdout_logging', group: :production
+
+gem 'quandl'
+
+gem 'smarter_csv'
+
+gem 'rubyzip'
 
 # Auto prefixes browser vendor
 # gem 'autoprefixer-rails'

@@ -46,12 +46,14 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#manage_users'
   get 'manage_users' => 'admin#manage_users'
   get 'manage_stocks' => 'admin#manage_stocks'
+  post 'admin_import' => 'admin#import'
 
   # Exchange Routes
 
   get 'exchange' => 'exchange#view'
   get 'create_trade' => 'exchange#create_trade'
   post 'create_trade' => 'exchange#execute_trade'
+  post 'refresh_exchange' => 'exchange#refresh'
 
 
 end

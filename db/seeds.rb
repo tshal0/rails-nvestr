@@ -18,34 +18,14 @@ default_users.each do |user_name, email, password|
 	User.create(user_name: user_name, email: email, password: password)
 end
 
-
-# Default Roles: role_name
-
-default_roles = ["admin", "trader"]
-
-default_roles.each do |role_name|
-	Role.create(role_name: role_name)
-end
-
-# Default UserToRoles: thomas:admin, brooklyn:trader
-
-default_utr = [
-[1, 1],
-[2, 2]
-]
-
-default_utr.each do |user_id, role_id|
-	UserToRole.create(user_id: user_id, role_id: role_id)
-end
-
 # Default Portfolios: portfolio_name, user_id
 
 default_portfolios = [
-	["Test Portfolios", User.find_by(user_name: "thomas").id, 100000.00]
+	["Test Portfolios", User.find_by(user_name: "thomas").id]
 ]
 
-default_portfolios.each do |portfolio_name, user_id, cash_account|
-	Portfolio.create(portfolio_name: portfolio_name, user_id: user_id, portfolio_cash_account: cash_account)
+default_portfolios.each do |portfolio_name, user_id|
+	Portfolio.create(portfolio_name: portfolio_name, user_id: user_id)
 end
 
 # Default Stocks: stock_name, stock_symbol, stock_price
@@ -77,43 +57,6 @@ default_positions = [
 default_positions.each do |position_amount, stock_id, portfolio_id|
 	Position.create(position_amount: position_amount, stock_id: stock_id, portfolio_id: portfolio_id)
 end
-
-default_trade_types = ['BUY', 'SELL']
-
-default_trade_types.each do |type|
-	TradeType.create(trade_type_name: type)
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
