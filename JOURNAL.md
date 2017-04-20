@@ -78,10 +78,26 @@ That reminds me, I need to add portfolio cash value to the portfolio page.
 https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?api_key=xNSxrMU_zRKHVD-7TKxJ
 
 
+4/19
 
+Color Scheme 
 
+Blue: 
+#4e9def
+#337ab7
+#004178
 
+White
+#f5f7f8
+#f9f9f9
+#f7f7f7
 
+Grey
+#444444
+#282826
+#37474f
+#333333
+#2b2e38
 
 
 

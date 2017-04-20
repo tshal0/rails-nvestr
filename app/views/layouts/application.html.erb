@@ -21,7 +21,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
@@ -46,10 +46,14 @@
           <%= render :partial => "users/usernavbar" %>
         <% end %>
       <% else %>
-       <%= render :partial => "dangerous/dangerousnavbar" %>
+
+            <%= render :partial => "dangerous/dangerousnavbar" %>
+
+      </div>
       
       <% end %>
       <div class="row">
+        <% if user_is_logged_in? then %>
         <div class="col-sm-2">
           <%= yield :sidebar %>
         </div>
@@ -58,7 +62,17 @@
         </div>
         <div class="col-sm-2"></div>
       </div>
-      
+      <% else %>
+
+          <div class="col-sm-12">
+            <%= yield :header %>
+          </div>
+
+          <div class="col-sm-12">
+            <%= yield %>
+          </div>
+
+      <% end %>
 
 
       

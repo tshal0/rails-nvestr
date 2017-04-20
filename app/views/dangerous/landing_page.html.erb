@@ -1,20 +1,35 @@
 <!-- Landing Page for non-users of Nvestr -->
 
 <% content_for :sidebar do %>
-<!-- sidebar content -->
-	<%= render :partial => "dangerous/sidebar" %>
+
 <% end %>
 
 <!-- Introduce the User to Nvestr -->
-
+<% content_for :header do %>
 <div class ="center">
 
-	<h1 class="center jumbotron nvestr-header">Nvestr</h1>
-	<h2>
-		A simple, social investing simulator. 
-	</h2>
+	<div class="center nvestr-header">
+		<div class="nvestr-header-text">
+			<h1>Nvestr</h1>
+
+			A simple, social investing simulator. 
+		</div>
+		
+	</div>
+	
 
 </div>
+<div class="col-sm-12 nvestr-landing-story orbitron">
+
+	<div class="half-relative">
+		<h2>One portfolio.</h2>
+		<h2 class="bottom-right">One story.</h2>
+	</div>
+	
+</div>
+
+<% end %>
+
 
 <!-- Allow the User to "Register/Get Started" -->
 
@@ -22,42 +37,20 @@
 	<!-- Gonna need a User model. A register_user route.  -->
 	<!-- Gonna need required user attributes: user_name|Email|Password -->
 	<%= form_for User.new, url: register_user_path, remote: true do |f| %> 
-		<div class="row fix-row">
-			<div class="col-sm-12 center">
-					<table class="table table-striped table-bordered table-responsive registration-table">
-					<tbody class ="fix-tbody">
-						<% @required_user_attributes.zip(@header_user_attributes).each do |attribute, header| %>
-		                <tr>
-		                  <td>
-		                  	<%= header.strip %>
-		                  	<span id="span<%= header %>" class="error-attributes show-error span-error-msg"></span>
-		                  	<i id="icon<%= header %>" class="error-attributes pull-right glyphicon glyphicon-remove-circle" style="display:none;"></i>
-		                  </td> 
-		                  <td>
-		                    <%= f.text_field attribute, class: "form-control" %>
-		                  </td>
-		                </tr>
-		              <% end %>
-		              <tr>
-		              	<td>Role:</td>
-		              	<td>
-		              		<% options = options_from_collection_for_select(@roles, 'id', 'role_name') %>
-		              		<%= select_tag "role", options %>
-		              	</td>
-		              </tr>
-					</tbody>
-				</table>
-			</div>
-						              <!-- Role dropdown -->
-	              		
-						
+	<div class="reg-container center">
+		<div class="registration-form">
+					<% @required_user_attributes.zip(@header_user_attributes).each do |attribute, header| %>
+	               
+	                  	<span id="span<%= header %>" class="error-attributes show-error span-error-msg"></span>
+	                  	<i id="icon<%= header %>" class="error-attributes pull-right glyphicon glyphicon-remove-circle" style="display:none;"></i>
+	                    <%= f.text_field attribute, placeholder: header.strip,class: "registration-form-input orbitron" %>
+	                    <br>
+	              <% end %>
+	              <br>
+			<%= f.submit "Go.", :id => "registrationBtn", class: "btn btn-large btn-default center registration-btn orbitron" %>
 		</div>
-		<div class="row fix-row">
-			<div class="col-sm-12 center">
-				<%= f.submit "Get Started", :id => "registrationBtn", class: "btn btn-large btn-primary center registration-btn" %>
-			</div>
-			
-		</div>
+	</div>
+	
 		
 	<% end %>
 </div>
