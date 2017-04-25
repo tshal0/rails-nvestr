@@ -15,12 +15,25 @@
 	</ul>
 </div>
 
-
+<!-- TODO: Add placeholders for:
+	Avatar
+	Username
+	Email
+	Website
+	Follow
+	Direct Message
+	Blog Posts
+	Portfolio Performance chart
+	Timeline -->
 <div class="tab-content">
   <div class="tab-pane active" id="profile" role="tabpanel">
-  	<h3><%= @user.user_name %></h3>
- 	<h4><%= @user.email %></h4>
- 	<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
+  	<div>
+  		<h3><%= @user.user_name %></h3>
+  		<h4><%= @user.email %></h4>
+ 		<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
+  	</div>
+  	
+ 	
   </div>
   <div class="tab-pane" id="activity" role="tabpanel">Activity</div>
   <% if @is_admin then %>
