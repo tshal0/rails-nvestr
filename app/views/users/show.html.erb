@@ -27,12 +27,28 @@
 	Timeline -->
 <div class="tab-content">
   <div class="tab-pane active" id="profile" role="tabpanel">
-  	<div>
-  		<h3><%= @user.user_name %></h3>
-  		<h4><%= @user.email %></h4>
- 		<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
+  	<div style="display:flex;">
+  		<div class="user-profile-avatar"></div>
+  		<div class="user-profile-info">
+  			<h3><%= @user.user_name %></h3>
+  			<h4><%= @user.email %></h4>
+ 			<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
+  		</div>
   	</div>
-  	
+  	<div style="width:100%; display: flex;">
+	  	<div class="user-profile-actions">
+	  		<a href="#" class="icon user-profile-actions-btns">
+	            <span class="glyphicon glyphicon glyphicon-plus"></span>
+	        </a>
+	  		<a href="#" class="icon user-profile-actions-btns" style="float: right;">
+	            <span class="glyphicon glyphicon glyphicon-comment"></span>
+	        </a>
+	  	</div>
+	  	<div class="user-profile-follow">
+	  		<div>Followers: 1264</div>
+	  		<div>Following: 145</div>
+	  	</div>
+	 </div>	
  	
   </div>
   <div class="tab-pane" id="activity" role="tabpanel">Activity</div>

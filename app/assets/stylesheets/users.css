@@ -1,0 +1,30 @@
+
+.user-profile-avatar {
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:url('avatar.png');
+    background-size: 100px;
+    width: 100px;
+    height:100px;
+    color: #f7f7f7 !important;
+    margin: 20px;
+    margin-bottom: 10px;
+}
+
+.user-profile-info {
+}
+
+.user-profile-actions {
+	width:100px;
+	height:30px;
+
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.user-profile-actions-btns {
+	font-size: 1.5em;
+	color: #4e9def;
+}
