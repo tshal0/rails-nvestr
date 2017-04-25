@@ -15,8 +15,12 @@
 	<% if @user.id == @current_user.id || @current_user.is_admin then %>
 		<%= link_to create_trade_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
 			 <span class="glyphicon"></span>
-			 Add Position
+			 Create Order
 		<% end %>
+	<% end %>
+	<%= link_to portfolio_history_path(:portfolio_id => @portfolio.id), :remote => true, class: 'btn btn-primary btn-add-user' do %>
+		 <span class="glyphicon"></span>
+		 Portfolio History
 	<% end %>
 	<table class="table table-bordered">
 		<thead>
@@ -38,8 +42,8 @@
 					<td><%= number_to_currency(position.value) %></td>
 					<td>
 						<div class="center">
-							<%= link_to update_position_path(:position_id => position.id), :remote => true, class: 'btn btn-primary' do %>
-								<span>Modify Position</span>
+							<%= link_to position_history_path(:position_id => position.id), :remote => true, class: 'btn btn-primary' do %>
+								<span>Trade History</span>
 							<% end %>
 						</div>
 					</td>

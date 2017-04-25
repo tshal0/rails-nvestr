@@ -35,10 +35,18 @@ gem 'rails_serve_static_assets'
 
 gem 'rails_stdout_logging', group: :production
 
+
 # FIle uploading
 
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+
+gem 'quandl'
+
+gem 'smarter_csv'
+
+gem 'rubyzip'
+
 
 # Auto prefixes browser vendor
 # gem 'autoprefixer-rails'

@@ -13,11 +13,23 @@
 		<tbody><tr><td></td></tr></tbody>
 	</table>
 
-	<%= link_to add_stock_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
+
+
+	<%= form_tag({:action => :import}, multipart: true) do %>
+		<table class='table table-bordered center'>
+			<tbody>
+				<tr>
+					<td><%= file_field_tag :file %></td>
+					<td><%= submit_tag( "Upload Symbols/Names", { class: 'btn btn-primary' })%></td>
+				</tr>
+			</tbody>
+		</table>
+  	<% end %>
+  	<%= link_to add_stock_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
 		 <span class="glyphicon"></span>
 		 Add Stock
 	<% end %>
-	<table class="table table-bordered">
+	<table class="table table-bordered table-datatable">
 		<thead>
 			<tr>
 				<% @headers.each do | header | %>

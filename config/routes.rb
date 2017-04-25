@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   # Portfolio Routes
 
   get 'portfolio' => 'portfolios#load'
-  get 'update_position' => 'portfolios#update_position'
-  patch 'update_position' => 'portfolios#save_position'
+  get 'position_history' => 'portfolios#position_history'
+  get 'portfolio_history' => 'portfolios#portfolio_history'
 
   # Stock Routes
 
@@ -46,12 +46,14 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#manage_users'
   get 'manage_users' => 'admin#manage_users'
   get 'manage_stocks' => 'admin#manage_stocks'
+  post 'admin_import' => 'admin#import'
 
   # Exchange Routes
 
   get 'exchange' => 'exchange#view'
   get 'create_trade' => 'exchange#create_trade'
   post 'create_trade' => 'exchange#execute_trade'
+  post 'refresh_exchange' => 'exchange#refresh'
 
 
 end

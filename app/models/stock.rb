@@ -3,3 +3,5 @@ class Stock < ActiveRecord::Base
 		stock_symbol
 	end
 end
+
+

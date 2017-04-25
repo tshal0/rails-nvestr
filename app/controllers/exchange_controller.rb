@@ -3,6 +3,13 @@
 # users to create trades affecting or creating positions in their
 # portfolios. 
 
+
+Quandl::ApiConfig.api_key = 'xNSxrMU_zRKHVD-7TKxJ'
+Quandl::ApiConfig.api_version = '2015-04-09'
+
+require 'open-uri'
+require 'zip'
+
 class ExchangeController < ApplicationController
 
 	def view
@@ -14,6 +21,41 @@ class ExchangeController < ApplicationController
 		respond_to do |format|
 			format.html {}
 		end
+	end
+
+	def import
+		
+
+	end
+
+	def refresh
+
+		rowarray = Array.new    
+    	myfile = params[:file]
+
+    	csv = CSV.read(myfile.path)
+
+		
+		
+		csv.each do |first, sec|
+			name = sec.split("(", 2).first
+			sym = first.split("/", 2).last
+			Rails.logger.info(sym + " : " + name)
+
+			if !Stock.exists?(:stock_symbol => sym) then
+				stock = Stock.new(stock_symbol: sym, stock_name: name, stock_price: 0)
+				stock.save
+			elsif Stock.find_by(stock_symbol: sym).stock_price == 0
+				dataset = Quandl::Dataset.get(first)
+				latest = dataset.newest_available_date
+				price = dataset.data(params: {start_date: latest, column_index:4}).values[0].close
+				Stock.find_by(stock_symbol: sym).update_column("stock_price", price)
+			end
+
+
+
+		end
+		redirect_to exchange_path
 	end
 
 	def create_trade 
@@ -49,13 +91,13 @@ class ExchangeController < ApplicationController
 			# Tried to sell shares we don't have. 
 
 			@error = "Position does not exist."
-
+			Rails.logger.info(@error)
 			respond_to do |format|
 				format.js {}
 			end
 		end
 
-		params[:trade][:position_id] = position.id
+		
 		params[:trade][:trade_datetime] = DateTime.current
 		# Check if we're using market price or queueing a trade. 
 		if params[:price] == "true" then
@@ -65,7 +107,7 @@ class ExchangeController < ApplicationController
 
 
 		trade = Trade.new(trade_params)
-
+		
 		# Modify the positions accordingly
 
 
@@ -107,8 +149,9 @@ class ExchangeController < ApplicationController
 		end
 
 		if @error == "NONE"
-			trade.save
 			position.save
+			trade.position_id = position.id
+			trade.save
 			portfolio.save
 		end
 

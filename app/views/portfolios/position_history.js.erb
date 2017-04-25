@@ -1,0 +1,8 @@
+$("#modal-window").html("<%= escape_javascript render(:partial => '/portfolios/position_history') %>");
+$('#modal-window').modal('show');
+
+$(".button-submit").on('click', function() {
+	$("#modal-window").modal('hide');
+})
+
+$('.modal ').insertAfter($('body'));
