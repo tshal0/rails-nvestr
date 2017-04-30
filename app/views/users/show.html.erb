@@ -1,9 +1,32 @@
 <div id="userProfile">
+  	<div style="display:flex;">
+	<div class="user-profile-avatar"></div>
+	<div class="user-profile-info">
+		<h3><%= @user.user_name %></h3>
+		<h4><%= @user.email %></h4>
+		<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
+	</div>
+  	</div>
+  	<div style="width:100%; display: flex; margin-bottom: 20px;">
+	  	<div class="user-profile-actions">
+	  		<a href="#" class="icon user-profile-actions-btns">
+	            <span class="glyphicon glyphicon glyphicon-plus"></span>
+	        </a>
+	  		<a href="#" class="icon user-profile-actions-btns" style="float: right;">
+	            <span class="glyphicon glyphicon glyphicon-comment"></span>
+	        </a>
+	  	</div>
+	  	<div class="user-profile-follow">
+	  		<div>Followers: 1264</div>
+	  		<div>Following: 145</div>
+	  	</div>
+	 </div>	
+ 	
     <!-- Nav tabs -->
 	<ul class="nav nav-tabs" role="tablist">
-	  <li class="nav-item">
-	    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a>
-	  </li>
+		<li class="nav-item active">
+	    	<a class="nav-link" data-toggle="tab" href="#posts" role="tab">Posts</a>
+	  	</li>
 	  <li class="nav-item">
 	    <a class="nav-link" data-toggle="tab" href="#activity" role="tab">Activity</a>
 	  </li>
@@ -26,35 +49,45 @@
 	Portfolio Performance chart
 	Timeline -->
 <div class="tab-content">
-  <div class="tab-pane active" id="profile" role="tabpanel">
-  	<div style="display:flex;">
-  		<div class="user-profile-avatar"></div>
-  		<div class="user-profile-info">
-  			<h3><%= @user.user_name %></h3>
-  			<h4><%= @user.email %></h4>
- 			<h4><%= link_to 'Portfolio', portfolio_path(:id => @user.user_name) %> </h4>
-  		</div>
+	<div class="tab-pane active" id="posts" role="tabpanel">
+		
+		<% if @is_current_user then %>
+			<div style="width:100%;">
+				<%= text_field_tag 'title', nil, placeholder: 'Title', class: "form-blog form-blog-title" %>
+			</div>
+			<div style="width:100%;">
+				<%= text_field_tag 'post', nil, placeholder: 'Tell your story:', class: "form-blog form-blog-post" %>
+			</div>
+	  	<% end %>
+
+	  	<div id="postHistory">
+	  	</div>
+
+  		
+
   	</div>
-  	<div style="width:100%; display: flex;">
-	  	<div class="user-profile-actions">
-	  		<a href="#" class="icon user-profile-actions-btns">
-	            <span class="glyphicon glyphicon glyphicon-plus"></span>
-	        </a>
-	  		<a href="#" class="icon user-profile-actions-btns" style="float: right;">
-	            <span class="glyphicon glyphicon glyphicon-comment"></span>
-	        </a>
-	  	</div>
-	  	<div class="user-profile-follow">
-	  		<div>Followers: 1264</div>
-	  		<div>Following: 145</div>
-	  	</div>
-	 </div>	
- 	
-  </div>
-  <div class="tab-pane" id="activity" role="tabpanel">Activity</div>
-  <% if @is_admin then %>
+	<div class="tab-pane" id="activity" role="tabpanel">
+		<%= render(:partial => '/portfolios/portfolio_history')   %>
+	</div>
+	<% if @is_admin then %>
 	  <div class="tab-pane" id="settings" role="tabpanel">
 	  	<%= render(:partial => '/users/manage_user')   %>
 	  </div>
-  <% end %>
+	<% end %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

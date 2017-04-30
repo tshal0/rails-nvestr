@@ -10,8 +10,11 @@ class PortfoliosController < ApplicationController
   def load
     
     # Get portfolio data
+    @user = User.find(session[:user_id])
     @portfolio = Portfolio.find_by(user_id: session[:user_id])
     @positions = Position.where(portfolio_id: @portfolio.id)
+    @position_ids = Position.where(portfolio_id: @portfolio.id).select("id")
+    @trades = Trade.where(position_id: @position_ids)
     @stocks = []
     @positions.each do |pos|
       @stocks << Stock.find(pos.stock_id)
@@ -60,6 +63,8 @@ class PortfoliosController < ApplicationController
     @current_user = User.find(session[:user_id])
     @portfolio = Portfolio.find_by(user_id: @user.id)
     @positions = Position.where(portfolio_id: @portfolio.id)
+    @position_ids = Position.where(portfolio_id: @portfolio.id).select("id")
+    @trades = Trade.where(position_id: @position_ids)
     @stocks = []
     @positions.each do |pos|
       @stocks << Stock.find(pos.stock_id)

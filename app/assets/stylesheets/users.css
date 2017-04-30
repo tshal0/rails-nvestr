@@ -28,3 +28,23 @@
 	font-size: 1.5em;
 	color: #4e9def;
 }
+
+.post-header {
+	font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+	letter-spacing: -.02em;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 40px;
+	margin-left: -2.5px;
+	line-height: 1.04;
+	letter-spacing: -.028em;
+}
+
+.form-blog {
+	border: 0px !important;
+}
+
+.form-blog-title {
+	font-size: 3em;
+	font-weight: bold;
+}
