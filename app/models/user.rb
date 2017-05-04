@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	def add_role(role)
 		# Create UTR 
-		Rails.logger.info(self.id)
-		Rails.logger.info(role.id)
+		Rails.logger.info("SELF: " + self.id.to_s)
+		Rails.logger.info("ROLE: " + role.id.to_s)
 		UserToRole.create(user_id: self.id, role_id: role.id)
 	end
 

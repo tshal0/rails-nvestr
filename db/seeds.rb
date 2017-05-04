@@ -17,8 +17,6 @@ default_roles.each do | name |
 	Role.create(role_name: name)
 end
 
-
-
 # Default Users: user_name, email, password. 
 
 default_users = [
@@ -27,8 +25,8 @@ default_users = [
 ]
 
 default_users.each do |user_name, email, password|
-	user = User.create(user_name: user_name, email: email, password: password)
-	user.add_role(Role.find_by(role_name: "ADMIN"))
+	@user = User.create(user_name: user_name, email: email, password: password)
+	@user.add_role(Role.find_by(role_name: "ADMIN"))
 end
 
 # Default Portfolios: portfolio_name, user_id
