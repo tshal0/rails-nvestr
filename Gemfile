@@ -47,6 +47,8 @@ gem 'smarter_csv'
 
 gem 'rubyzip'
 
+gem 'whenever', :require => false
+
 
 # Auto prefixes browser vendor
 # gem 'autoprefixer-rails'
