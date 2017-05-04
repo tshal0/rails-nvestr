@@ -14,7 +14,7 @@ default_roles = [
 ]
 
 default_roles.each do | name |
-	Role.create(trade_type_name: name)
+	Role.create(role_name: name)
 end
 
 
