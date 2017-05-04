@@ -17,5 +17,9 @@
 
 
 $(document).ready(function() {
-    $('.table-datatable').DataTable();
+	if (!$('.table-datatable').isDataTable())
+	{
+		$('.table-datatable').DataTable();
+	}
+    	
 } );
