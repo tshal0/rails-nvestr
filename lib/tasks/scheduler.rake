@@ -21,11 +21,11 @@ task :populate_stocks => :environment do
 		sector = line[2]
 		industry = line[3]
 		if !Stock.exists?(stock_symbol: sym) then
-			puts "Adding: " + name
+			puts "Adding: " + name.to_s
 			Stock.create(stock_symbol: sym, stock_name: name)
 			added = added + 1
 		else
-			puts "Updating: " + name
+			puts "Updating: " + name.to_s
 			Stock.find_by(stock_symbol: sym).update(sector: sector, industry: industry)
 			changed = changed + 1
 		end
