@@ -44,7 +44,7 @@ task :update_stocks => :environment do
   	sym = line[0]
   	if stock = Stock.find_by(stock_symbol: sym) then
   		if stock.updated_at.to_date != date then
-  			stock.update(stock_price: line[12])
+  			stock.update(stock_price: line[12], volume: line[13], open: line[9])
   		end
   	else
 
