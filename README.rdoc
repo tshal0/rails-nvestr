@@ -1,3 +1,0 @@
-== NVESTR
-This is an application to allow users to log in and build portfolios of securities in a simulated environment, pulling data from live stock price feeds and databases. 
-
