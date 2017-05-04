@@ -25,41 +25,5 @@
 			</tbody>
 		</table>
   	<% end %>
-  	<%= link_to add_stock_path, :remote => true, class: 'btn btn-primary btn-add-user' do %>
-		 <span class="glyphicon"></span>
-		 Add Stock
-	<% end %>
-	<table class="table table-bordered table-datatable">
-		<thead>
-			<tr>
-				<% @headers.each do | header | %>
-					<td>
-						<%= header %>
-					</td>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @stocks.each do |stock| %>
-				<tr id="<%=	stock.id %>">
-					<td><%=	stock.stock_name %></td>
-					<td>
-						<%= link_to stocks_path(:stock_symbol => stock.stock_symbol) do %>
-								<span><%= stock.stock_symbol %></span>
-							<% end %>
-					</td>
-					<td><%=	number_to_currency(stock.stock_price) %></td>
-					<td>Never</td>
-					<td>
-						<div class="center">
-							<%= link_to update_stock_path(:stock_id => stock.id), :remote => true, class: 'btn btn-primary' do %>
-								<span>Update</span>
-							<% end %>
-							
-						</div>
-					</td>
-				</tr>
-			<% end	%>
-		</tbody>
-	</table>
+  	
 </div>

@@ -13,7 +13,7 @@ require 'zip'
 class ExchangeController < ApplicationController
 
 	def view
-		@stocks = Stock.all
+		@stocks = Stock.limit(500)
 		@headers = ['Company Name', "Symbol", "Price", "Last Updated", "Actions"]
 		@attribs = ['stock_name', 'stock_symbol', 'stock_price']
 

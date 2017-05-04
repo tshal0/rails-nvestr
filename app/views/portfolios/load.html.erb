@@ -1,17 +1,11 @@
 <% content_for :sidebar do %>
 <!-- sidebar content -->
-	<%= render :partial => "portfolios/sidebar" %>
+
 <% end %>
 
 <div class ="portfolioDiv">
 
 	<h1 class='center'><%= @user.user_name%></h1>
-	<h3 class='center'>Manage your portfolio of investments here.</h3>
-
-		<%= link_to portfolio_history_path(:portfolio_id => @portfolio.id), :remote => true, class: 'btn btn-primary btn-add-user' do %>
-		 <span class="glyphicon"></span>
-		 Portfolio History
-	<% end %>
 
 	<table class="table table-line">
 		<tbody><tr><td></td></tr></tbody>

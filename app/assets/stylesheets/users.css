@@ -48,3 +48,16 @@
 	font-size: 3em;
 	font-weight: bold;
 }
+
+.table-edit-user {
+	margin-top: 20px;
+}
+
+table.table-edit-user tbody tr td {
+	border:none;
+	text-align: left;
+}
+
+.user-update-btn {
+	float: right;
+}

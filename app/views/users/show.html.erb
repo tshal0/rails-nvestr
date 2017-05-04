@@ -67,11 +67,55 @@
 
   	</div>
 	<div class="tab-pane" id="activity" role="tabpanel">
-		<%= render(:partial => '/portfolios/portfolio_history')   %>
+		<div style="width:75%; margin:auto; margin-top:20px;">
+			<table align="center" class="table table-striped table-bordered table-headers-bold center">
+            <thead>
+              <tr>
+                <td>Transaction</td>
+                <td>Amount</td>
+                <td>Price</td>
+                <td>Date</td>
+                <td>Current Price</td>
+                <td>Change (%)</td>
+              </tr>
+            </thead>
+            <tbody class="center">
+              <% @trades.each do |trade| %>
+                <tr>
+                  <td><%= trade.type %></td>
+                  <td><%= trade.trade_amount %></td>
+                  <td><%= number_to_currency(trade.trade_price) %></td>
+                  <td><%= trade.trade_datetime %></td>
+                  <td><%= number_to_currency(trade.current_price) %></td>
+                  <td><%= trade.change %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+		</div>
+		
 	</div>
 	<% if @is_admin then %>
 	  <div class="tab-pane" id="settings" role="tabpanel">
-	  	<%= render(:partial => '/users/manage_user')   %>
+	  	<%= form_for @user, url: manage_user_path, remote: true do |f| %>
+          <%=  f.hidden_field :id %>
+          <div style="width:50%; margin:auto;" class="center">
+          	<table align="center" class="table table-bordered table-edit-user">
+	            <tbody class="center">
+	              <% @header_attribs.zip(@all_attribs).each do |header, attribute| %>
+	                <tr>
+	                  <td><%= header %></td> 
+	                  <td>
+	                    <%= f.text_field attribute, class: "form-control" %>
+	                  </td>
+	                </tr>
+	              <% end %>
+	            </tbody>
+	          </table>
+          <%= f.submit "Update", :id => :id, class: "btn btn-primary user-update-btn" %> 
+          </div>
+          
+        <% end %>
 	  </div>
 	<% end %>
 </div>

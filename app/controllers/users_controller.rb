@@ -3,20 +3,25 @@ class UsersController < ApplicationController
 	def show
 		# Profile page
 		Rails.logger.info(params)
-		@user = User.find_by(user_name: params[:id])
 		@current_user = User.find(session[:user_id])
-		@is_admin = @current_user.is_admin
-		@is_current_user = (@user.id == @current_user.id)
-		@header_attribs = ['Username', 'Email', 'New Password']
-		@all_attribs = ['user_name', 'email', 'password']
+		if @user = User.find_by(user_name: params[:id]) then
+			
+			@is_admin = @current_user.is_admin
+			@is_current_user = (@user.id == @current_user.id)
+			@header_attribs = ['Username', 'Email', 'New Password']
+			@all_attribs = ['user_name', 'email', 'password']
+			
+
+			# Find Portfolio for User
+
+
+			@portfolio = Portfolio.find_by(user_id: @user.id)
+		    @position_ids = Position.where(portfolio_id: @portfolio.id).select("id")
+	    	@trades = Trade.where(position_id: @position_ids)
+		else
+			redirect_to user_path(:id => @current_user.user_name)
+		end
 		
-
-		# Find Portfolio for User
-
-
-		@portfolio = Portfolio.find_by(user_id: @user.id)
-	    @position_ids = Position.where(portfolio_id: @portfolio.id).select("id")
-    	@trades = Trade.where(position_id: @position_ids)
 
 		respond_to do |format|
 			format.html {}
