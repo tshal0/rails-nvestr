@@ -46,7 +46,7 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th colspan="6">
+				<th colspan="8">
 					<h2>Holdings</h2>
 				</th>
 			</tr>
@@ -62,6 +62,8 @@
 			<% @position_stock.each do |position, stock| %>
 				<tr id="<%=	stock.id %>">
 					<td><%=	stock.stock_name %></td>
+					<td><%= stock.sector %></td>
+					<td><%= stock.industry %></td>
 					<td><%=	stock.stock_symbol %></td>
 					<td><%=	number_to_currency(stock.stock_price) %></td>
 					<td><%= position.position_amount %></td>

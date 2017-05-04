@@ -32,13 +32,15 @@
 			<% @stocks.each do |stock| %>
 				<tr id="<%=	stock.id %>">
 					<td><%=	stock.stock_name %></td>
+					<td><%= stock.sector %></td>
+					<td><%= stock.industry %></td>
 					<td>
 						<%= link_to stocks_path(:stock_symbol => stock.stock_symbol) do %>
 							<span><%= stock.stock_symbol %></span>
 						<% end %>
 					</td>
 					<td><%=	number_to_currency(stock.stock_price) %></td>
-					<td>Never</td>
+					<td><%= stock.updated_at.to_date %></td>
 					<td>
 						<div class="center">
 							<%= link_to create_trade_path(:stock_id => stock.id), :remote => true, class: 'btn btn-primary' do %>

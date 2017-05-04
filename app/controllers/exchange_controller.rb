@@ -14,7 +14,7 @@ class ExchangeController < ApplicationController
 
 	def view
 		@stocks = Stock.limit(500)
-		@headers = ['Company Name', "Symbol", "Price", "Last Updated", "Actions"]
+		@headers = ['Company Name', "Sector", "Industry", "Symbol", "Price", "Last Updated", "Actions"]
 		@attribs = ['stock_name', 'stock_symbol', 'stock_price']
 
 

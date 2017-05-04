@@ -105,8 +105,7 @@ Grey
 
 Re vamping login page with partials and tables
 
-
-
+https://www.quandl.com/api/v3/datatables/WIKI/PRICES.csv?date=2017-05-03&api_key=xNSxrMU_zRKHVD-7TKxJ
 
 
 

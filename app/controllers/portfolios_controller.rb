@@ -7,31 +7,7 @@ class PortfoliosController < ApplicationController
   
   # Load
   # Should have access to a user ID in the session data.
-  def load
-    
-    # Get portfolio data
-    @user = User.find(session[:user_id])
-    @portfolio = Portfolio.find_by(user_id: session[:user_id])
-    @positions = Position.where(portfolio_id: @portfolio.id)
-    @position_ids = Position.where(portfolio_id: @portfolio.id).select("id")
-    @trades = Trade.where(position_id: @position_ids)
-    @stocks = []
-    @positions.each do |pos|
-      @stocks << Stock.find(pos.stock_id)
-    end
-    @position_stock = @positions.zip(@stocks)
-  	@headers = ['Company Name', "Symbol", "Price", "Amount", "Value","Actions"]
-
-
-    # Load page
-
-    respond_to do |format|
-
-      format.html # load.html.erb
-
-    end
-
-  end
+  
 
   def position_history
     @position = Position.find(params[:position_id])
@@ -70,7 +46,7 @@ class PortfoliosController < ApplicationController
       @stocks << Stock.find(pos.stock_id)
     end
     @position_stock = @positions.zip(@stocks)
-    @headers = ['Company Name', "Symbol", "Price", "Amount", "Value","Actions"]
+   @headers = ['Company Name', "Sector", "Industry", "Symbol", "Price", "Amount", "Value","Actions"]
 
 
     respond_to do |format|
