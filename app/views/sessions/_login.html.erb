@@ -1,0 +1,42 @@
+<div id="errorText" style="color:red"></div>
+  <!-- Form to be submitted to session controller via login route -->
+  <%= form_for(:session, url: login_path, :remote => true) do |f| %>
+    
+    <table class="table table-bordered table-login">
+    	<tbody>
+    		<tr>
+    			<td class="center">
+					<button type="button" class="btn btn-danger btn-social" style="float:right;">Google</button>
+    			</td>
+    			<td class="center">
+    				<button type="button" class="btn btn-primary btn-social" style="float:left;">FaceBook</button>
+    			</td>
+    		</tr>
+    		<tr><td colspan="2" class="center">OR</td></tr> 
+    		<tr>
+    			<td colspan="2">
+    				<%= f.label :email, class: 'center'%> (required)
+    			</td>
+    		</tr>
+
+    		<tr>
+    			<td colspan="2" class="center"><%= f.text_field :email, :placeholder => "example@domain.com", class: 'form-control login-input center' %></td>
+    		</tr>
+    		<tr>
+    			<td colspan="2">
+    				<%= f.label :password, class: "center" %> (required)
+    			</td>
+    		</tr>
+    		<tr>
+    			<td colspan="2" class="center"> 
+    				<%= f.password_field :password, :placeholder => "********", class: 'form-control login-input center' %>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td colspan="2">
+    				<%= f.submit "Login", class: "btn btn-large btn-primary btn-table-login center" %><br>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+  <% end %>

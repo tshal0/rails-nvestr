@@ -3,7 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-// Styles for STRICTLY the landing page. 
+// Styles for STRICTLY the landing page/login/signup pages
+
+.table-login {
+	margin: auto;
+	margin-top: 20px;
+	max-width: 50% !important;
+	table-layout: fixed;
+}
+
+.table-login tbody tr td {
+	border: 0px !important;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+
+.btn-table-login {
+	float:right;
+	margin-bottom: 20px !important;
+}
+
+.btn-social {
+	margin-top: 20px;
+	width:75%;
+}
 
 .registration-table {
 	table-layout: fixed;

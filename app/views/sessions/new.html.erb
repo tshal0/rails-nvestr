@@ -1,13 +1,22 @@
-<div id="errorText" style="color:red"></div>
-  <!-- Form to be submitted to session controller via login route -->
-  <%= form_for(:session, url: login_path, :remote => true) do |f| %>
-    
-    <%= f.label :name, class: 'center'%><br>
-    <%= f.text_field :name, class: 'form-control login-input center' %><br>
 
-    <%= f.label :password, class: "center" %> <br>
-    <%= f.password_field :password, class: 'form-control login-input center' %><br>
-      
-    <%= f.submit "Login", class: "btn btn-large btn-primary button-submit center", :remote => true %><br>
-  <% end %>
+
+<div role="tabpanel" >
+	<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+        	<a href="#login-tab" data-toggle="tab">Log In</a>
+        </li>
+        <li>
+        	<a href="#signup-tab" data-toggle="tab">Sign Up</a>
+        </li>
+	</ul>
+	
+</div>
+
+<div class="tab-content">
+	<div id="login-tab" class="tab-pane active">
+		<%= render :partial => 'sessions/login' %>
+	</div>
+	<div id="signup-tab" class="tab-pane" >
+		<%= render :partial => 'sessions/signup' %>
+	</div>
 </div>

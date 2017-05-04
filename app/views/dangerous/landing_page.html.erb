@@ -36,23 +36,7 @@
 <div id="registrationDiv" >
 	<!-- Gonna need a User model. A register_user route.  -->
 	<!-- Gonna need required user attributes: user_name|Email|Password -->
-	<%= form_for User.new, url: register_user_path, remote: true do |f| %> 
-	<div class="reg-container center">
-		<div class="registration-form">
-					<% @required_user_attributes.zip(@header_user_attributes).each do |attribute, header| %>
-	               
-	                  	<span id="span<%= header %>" class="error-attributes show-error span-error-msg"></span>
-	                  	<i id="icon<%= header %>" class="error-attributes pull-right glyphicon glyphicon-remove-circle" style="display:none;"></i>
-	                    <%= f.text_field attribute, placeholder: header.strip,class: "registration-form-input orbitron" %>
-	                    <br>
-	              <% end %>
-	              <br>
-			<%= f.submit "Go.", :id => "registrationBtn", class: "btn btn-large btn-default center registration-btn orbitron" %>
-		</div>
-	</div>
 	
-		
-	<% end %>
 </div>
 
 <!-- Allow the User to "Contact Us" -->

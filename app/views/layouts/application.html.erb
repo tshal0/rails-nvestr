@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Nvestr</title> 
+    <title>Nvestr</title>
+
+
 
 	<!-- Can't just include all javascripts...I can include all stylesheets tho -->
 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -16,28 +18,28 @@
 	<!-- Again, no idea what this does.  -->
 	<%= csrf_meta_tags %>
 
+  <script type="text/javascript" src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- 
+  <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
 
-   <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
   <link href="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-<link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  <link href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
+
   </head>
   <body>
-    <!-- TODO: Dangerous Nav Bar: Login Link -->
-    <!-- Remember to change navbar based on session status -->
+
+
+    <%= yield :javascript %>
+
     <div>
       <% if user_is_logged_in? then %>
         <% if is_admin then %>
@@ -46,12 +48,9 @@
           <%= render :partial => "users/usernavbar" %>
         <% end %>
       <% else %>
-
-            <%= render :partial => "dangerous/dangerousnavbar" %>
-
-      </div>
-      
+            <%= render :partial => "dangerous/dangerousnavbar" %> 
       <% end %>
+    </div>
       <div class="row">
         <% if user_is_logged_in? then %>
         <div class="col-sm-2">
@@ -68,9 +67,12 @@
             <%= yield :header %>
           </div>
 
-          <div class="col-sm-12">
-            <%= yield %>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8 site-content-margin">
+            <!-- Site content within 8 columns.  -->
+              <%= yield %>
           </div>
+          <div class="col-sm-2"></div>
 
       <% end %>
 
