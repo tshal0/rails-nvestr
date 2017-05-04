@@ -6,6 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Default Roles
+
+default_roles = [
+	["ADMIN"],
+	["TRADER"]
+]
+
+default_roles.each do | name |
+	Role.create(trade_type_name: name)
+end
+
+
 
 # Default Users: user_name, email, password. 
 
@@ -15,7 +27,8 @@ default_users = [
 ]
 
 default_users.each do |user_name, email, password|
-	User.create(user_name: user_name, email: email, password: password)
+	user = User.create(user_name: user_name, email: email, password: password)
+	user.add_role(Role.find_by(role_name: "ADMIN"))
 end
 
 # Default Portfolios: portfolio_name, user_id

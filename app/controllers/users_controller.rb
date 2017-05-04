@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 			if params[:role] then
 				@user.add_role(Role.find(params[:role]))
 			else
-				@user.add_role(Role.find_by(role_name: "admin"))
+				@user.add_role(Role.find_by(role_name: "ADMIN"))
 			end
 			
 			Portfolio.create(portfolio_name: 'Portfolio', user_id: @user.id, portfolio_cash_account: 100000.00)
