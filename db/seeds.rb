@@ -38,6 +38,17 @@ default_stocks.each do |stock_name, stock_symbol, stock_price|
 	Stock.create(stock_name: stock_name, stock_symbol: stock_symbol, stock_price: stock_price)
 end
 
+# Default Trade Types: trade_type_name
+
+default_trade_types = [
+	["BUY"],
+	["SELL"]
+]
+
+default_trade_types.each do | name |
+	TradeType.create(trade_type_name: name)
+end
+
 # Default Trades: trade_type, trade_amount, trade_price, trade_datetime, stock_id, position_id
 
 default_trades = [
