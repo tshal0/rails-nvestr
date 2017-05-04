@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 	def new
 		respond_to do |format|
-      		format.js {} # renders new.js.erb
+      		format.html {} # renders new.html.erb
     	end
 	end
 

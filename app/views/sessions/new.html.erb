@@ -1,0 +1,13 @@
+<div id="errorText" style="color:red"></div>
+  <!-- Form to be submitted to session controller via login route -->
+  <%= form_for(:session, url: login_path, :remote => true) do |f| %>
+    
+    <%= f.label :name, class: 'center'%><br>
+    <%= f.text_field :name, class: 'form-control login-input center' %><br>
+
+    <%= f.label :password, class: "center" %> <br>
+    <%= f.password_field :password, class: 'form-control login-input center' %><br>
+      
+    <%= f.submit "Login", class: "btn btn-large btn-primary button-submit center", :remote => true %><br>
+  <% end %>
+</div>
