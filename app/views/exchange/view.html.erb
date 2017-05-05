@@ -30,20 +30,20 @@
 		</thead>
 		<tbody>
 			<% @stocks.each do |stock| %>
-				<tr id="<%=	stock.id %>">
-					<td><%=	stock.stock_name %></td>
-					<td><%= stock.sector %></td>
-					<td><%= stock.industry %></td>
+				<tr id="<%=	stock[0] %>">
+					<td><%=	stock[1] %></td>
+					<td><%= stock[2] %></td>
+					<td><%= stock[3] %></td>
 					<td>
-						<%= link_to stocks_path(:stock_symbol => stock.stock_symbol) do %>
-							<span><%= stock.stock_symbol %></span>
+						<%= link_to stocks_path(:stock_symbol => stock[4]) do %>
+							<span><%= stock[4] %></span>
 						<% end %>
 					</td>
-					<td><%=	number_to_currency(stock.stock_price) %></td>
-					<td><%= stock.updated_at.to_date %></td>
+					<td><%=	number_to_currency(stock[5]) %></td>
+					<td><%= stock[6] %></td>
 					<td>
 						<div class="center">
-							<%= link_to create_trade_path(:stock_id => stock.id), :remote => true, class: 'btn btn-primary' do %>
+							<%= link_to create_trade_path(:stock_id => stock[0]), :remote => true, class: 'btn btn-primary' do %>
 								<span>Trade</span>
 							<% end %>
 						</div>
