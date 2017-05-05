@@ -14,7 +14,7 @@ class ExchangeController < ApplicationController
 
 	def view
 		@stocks = Stock
-			.where.not(stock_name: '', industry: '', sector: '')
+			.where.not(stock_name: '', industry: '', sector: '', price_update: '', stock_price: '')
 			.pluck(:id, :stock_name, :sector, :industry, :stock_symbol, :stock_price, :price_update)
 			
 		@headers = ['Company Name', "Sector", "Industry", "Symbol", "Price", "Last Updated", "Actions"]
