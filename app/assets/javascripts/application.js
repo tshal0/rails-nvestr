@@ -15,11 +15,3 @@
 //= require turbolinks
 //= require exchange
 
-
-$(document).ready(function() {
-	if (!$('.table-datatable').isDataTable())
-	{
-		$('.table-datatable').DataTable();
-	}
-    	
-} );
